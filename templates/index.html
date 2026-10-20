@@ -23,8 +23,32 @@
 <link rel="stylesheet" href="{% static 'burnout/css/nivo-lightbox.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo_themes/default/default.css' %}">
 <style>
-/* En móviles, subir el texto del carrusel para que no tape a las personas. */
+/* Menú hamburguesa alineado a la derecha en móviles. */
+.navbar { position: relative; }
+.navbar .menu-toggle {
+  position: absolute;
+  right: 16px;
+  top: 24px;
+  z-index: 1050;
+  width: 44px;
+  height: 40px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+.navbar .menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  border-radius: 2px;
+  background: #fff;
+}
 @media (max-width: 767px) {
+  .navbar .container { position: relative; padding-right: 60px; }
+  .navbar .menu-toggle { right: 12px; top: 18px; }
   .main-slider .swiper-slide h2 {
     position: relative;
     top: -55px;
@@ -45,8 +69,8 @@
 <!-- Top Navigation -->
     <nav class="navbar navbar-toggleable-md mb-4 top-bar navbar-static-top sps sps--abv">
         <div class="container">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="menu-toggle" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse1" aria-expanded="false" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
       </button>
       <a class="navbar-brand" href="/" aria-label="Guerrero Valiente"><img src="{% static 'burnout/img/logoindex.svg' %}" alt="" style="height: 82px; max-width: 260px; width: auto; object-fit: contain; display: block;"></a>
       <div class="collapse navbar-collapse" id="navbarCollapse1">
