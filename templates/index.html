@@ -23,9 +23,23 @@
 <link rel="stylesheet" href="{% static 'burnout/css/nivo-lightbox.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo_themes/default/default.css' %}">
 <style>
-/* Menú hamburguesa alineado a la derecha en móviles. */
+/* Mantener visible la cabecera sobre el carrusel. */
+.top-bar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100;
+  background: transparent;
+}
+.top-bar .navbar-brand { display: inline-block; position: relative; z-index: 1101; }
+.top-bar .navbar-brand img { visibility: visible !important; opacity: 1 !important; }
 .navbar { position: relative; }
 .navbar .menu-toggle {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   position: absolute;
   right: 16px;
   top: 24px;
