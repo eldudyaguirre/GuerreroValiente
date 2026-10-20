@@ -22,6 +22,15 @@
 <link rel="stylesheet" href="{% static 'burnout/css/animate.min.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo-lightbox.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo_themes/default/default.css' %}">
+<style>
+/* En móviles, subir el texto del carrusel para que no tape a las personas. */
+@media (max-width: 767px) {
+  .main-slider .swiper-slide h2 {
+    position: relative;
+    top: -55px;
+  }
+}
+</style>
 <!-- Font Awesome Style -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
