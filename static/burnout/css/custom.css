@@ -1124,3 +1124,161 @@ body.interior-page .top-bar.sps--blw {
     min-height: 105px;
   }
 }
+
+
+/* Página Acerca: diseño editorial cálido, coherente con la identidad azul de Guerrero Valiente. */
+.about-page {
+  color: #334155;
+  background: #fff;
+  padding-bottom: 36px;
+}
+.about-page .about-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 450px;
+  padding: 150px 0 88px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(0, 35, 82, .94) 0%, rgba(0, 42, 110, .83) 54%, rgba(0, 42, 110, .42) 100%),
+    url('../img/para-01.jpg') center 45% / cover no-repeat;
+}
+.about-hero-copy { max-width: 760px; color: #fff; }
+.about-page .about-eyebrow,
+.about-page .about-section-kicker {
+  display: inline-block;
+  color: #159cff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+.about-page .about-eyebrow { color: #b9e3ff; }
+.about-page .about-hero h1 {
+  color: #fff;
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 800;
+  line-height: 1.13;
+  max-width: 740px;
+  margin: 0 0 22px;
+  text-transform: none;
+}
+.about-page .about-hero p {
+  max-width: 690px;
+  color: rgba(255,255,255,.91);
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+.about-primary-link, .about-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 22px;
+  border-radius: 5px;
+  background: #0297ff;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: transform .2s ease, background .2s ease;
+}
+.about-primary-link:hover, .about-cta-link:hover {
+  background: #087ac9;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+.about-page-body { padding-top: 78px; }
+.about-story {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: 58px;
+  margin-bottom: 100px;
+}
+.about-story-image { position: relative; min-width: 0; }
+.about-story-image > img {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.about-image-note {
+  position: relative;
+  width: calc(100% - 42px);
+  margin: -42px auto 0;
+  padding: 20px 24px;
+  background: #fff;
+  border-left: 4px solid #0297ff;
+  border-radius: 5px;
+  box-shadow: 0 12px 34px rgba(15, 42, 74, .13);
+}
+.about-image-note span {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.about-image-note strong { color: #002a6e; font-size: 17px; }
+.about-story-copy h2, .about-section-heading h2, .about-cta h2 {
+  color: #082d5c;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 20px;
+  text-transform: none;
+}
+.about-story-copy p {
+  color: #526174;
+  font-size: 16px;
+  line-height: 1.85;
+  margin: 0 0 15px;
+}
+.about-story-copy strong { color: #163d6a; }
+.about-values {
+  padding: 66px 0 78px;
+  border-top: 1px solid #e7eef5;
+}
+.about-section-heading { max-width: 720px; margin: 0 auto 38px; text-align: center; }
+.about-section-heading p { color: #64748b; font-size: 16px; line-height: 1.8; }
+.about-value-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.about-value-card {
+  position: relative;
+  padding: 30px 27px;
+  background: #f7faff;
+  border: 1px solid #e4edf7;
+  border-radius: 10px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.about-value-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0, 42, 110, .09); }
+.about-value-number { position: absolute; top: 20px; right: 22px; color: #c6d9ee; font-size: 24px; font-weight: 800; }
+.about-value-icon { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 22px; color: #0289e8; background: #e4f3ff; border-radius: 12px; font-size: 22px; }
+.about-value-card h3 { color: #082d5c; font-size: 21px; font-weight: 800; margin: 0 0 12px; }
+.about-value-card p { color: #5b6879; font-size: 15px; line-height: 1.8; margin: 0; }
+.about-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 42px 44px;
+  color: #fff;
+  background: linear-gradient(120deg, #062d5d, #075a9e);
+  border-radius: 12px;
+}
+.about-cta > div { max-width: 700px; }
+.about-cta .about-section-kicker { color: #9bd8ff; margin-bottom: 12px; }
+.about-page .about-cta h2 { color: #fff; font-size: clamp(24px, 2.6vw, 32px); margin-bottom: 12px; }
+.about-cta p { color: rgba(255,255,255,.85); font-size: 15px; line-height: 1.8; margin: 0; }
+.about-cta-link { flex-shrink: 0; background: #fff; color: #06366a !important; }
+.about-cta-link:hover { background: #e6f4ff; color: #06366a !important; }
+@media (max-width: 767px) {
+  .about-page .about-hero { min-height: 0; padding: 130px 0 65px; background-position: center; }
+  .about-page .about-hero h1 { font-size: 34px; }
+  .about-page .about-hero p { font-size: 16px; }
+  .about-page-body { padding-top: 48px; }
+  .about-story { grid-template-columns: 1fr; gap: 34px; margin-bottom: 60px; }
+  .about-story-image > img { max-height: 330px; }
+  .about-values { padding: 48px 0; }
+  .about-value-grid { grid-template-columns: 1fr; gap: 15px; }
+  .about-cta { flex-direction: column; align-items: flex-start; padding: 30px 24px; }
+}
