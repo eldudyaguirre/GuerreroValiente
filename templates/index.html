@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="{% static 'burnout/css/nivo-lightbox.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo_themes/default/default.css' %}">
 <style>
-/* Mantener visible la cabecera sobre el carrusel. */
+/* Cabecera superpuesta al carrusel y fija al desplazarse. */
 .top-bar {
   position: absolute !important;
   top: 0;
@@ -32,9 +32,35 @@
   width: 100%;
   z-index: 1100;
   background: transparent;
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+/* ScrollPosStyler añade sps--blw al bajar la página. */
+.top-bar.sps--abv {
+  position: absolute !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.top-bar.sps--blw {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #fff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .14) !important;
 }
 .top-bar .navbar-brand { display: inline-block; position: relative; z-index: 1101; }
 .top-bar .navbar-brand img { visibility: visible !important; opacity: 1 !important; }
+
+/* Contraste de los enlaces cuando la cabecera tiene fondo blanco. */
+.top-bar.sps--blw .nav-link {
+  color: #002A6E !important;
+}
+.top-bar.sps--blw .nav-link:hover,
+.top-bar.sps--blw .nav-item.active .nav-link {
+  color: #168fe5 !important;
+}
 .navbar { position: relative; }
 .navbar .menu-toggle {
   display: none !important;
