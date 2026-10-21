@@ -2,5 +2,69 @@
 {% load static %}
 {% block title %}Acerca de Guerrero Valiente | Guerrero Valiente{% endblock %}
 {% block content %}
-<section class="service-sec inner-page"><div class="container"><div class="row"><div class="col-md-12"><div class="heading text-md-center text-xs-center"><h2><small>QUIÉNES SOMOS</small>Un espacio de apoyo y esperanza</h2></div></div></div><div class="inner-page-content"><p><strong>Guerrero Valiente nació en diciembre de 2024</strong> como un espacio de apoyo de Nar-Anon para familiares y seres queridos de personas que tienen problemas con la dependencia.</p><p>Acompañar a alguien en esta situación puede traer preocupación, cansancio y sentimientos difíciles de expresar. Aquí puedes compartir tu experiencia con personas que te escuchan sin juzgarte.</p><p>En nuestras reuniones compartimos experiencia, fortaleza y esperanza. Aprendemos a cuidar de nosotros mismos, reconocer aquello que no podemos controlar y encontrar serenidad un día a la vez.</p></div></div></section>
+<section class="about-page">
+  <div class="about-hero">
+    <div class="container">
+      <div class="about-hero-copy">
+        <span class="about-eyebrow">GUERRERO VALIENTE · NAR-ANON</span>
+        <h1>Un espacio para recuperar la serenidad, un día a la vez.</h1>
+        <p>No tienes que recorrer este camino a solas. Aquí encontrarás comprensión, respeto y apoyo mutuo entre personas que entienden lo que vive una familia cuando alguien querido enfrenta problemas de dependencia.</p>
+        <a class="about-primary-link" href="{% url 'contactos' %}">Conoce nuestras reuniones <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container about-page-body">
+    <section class="about-story">
+      <div class="about-story-image">
+        <img src="{% static 'burnout/img/side-01.png' %}" alt="Personas que se acompañan y comparten apoyo">
+        <div class="about-image-note"><span>Desde diciembre de 2024</span><strong>Experiencia, fortaleza y esperanza</strong></div>
+      </div>
+      <div class="about-story-copy">
+        <span class="about-section-kicker">NUESTRA HISTORIA</span>
+        <h2>Nacimos para acompañarnos, no para juzgarnos.</h2>
+        <p><strong>Guerrero Valiente nació en diciembre de 2024</strong> como un espacio de apoyo de Nar-Anon para familiares y seres queridos de personas que tienen problemas con la dependencia.</p>
+        <p>Acompañar a alguien en esta situación puede traer preocupación, cansancio y sentimientos difíciles de expresar. Compartir con otras personas que comprenden esta experiencia puede ayudarnos a sentirnos escuchados y menos solos.</p>
+        <p>En nuestras reuniones compartimos experiencia, fortaleza y esperanza. Aprendemos a cuidar de nosotros mismos, reconocer aquello que no podemos controlar y encontrar serenidad un día a la vez.</p>
+      </div>
+    </section>
+
+    <section class="about-values">
+      <div class="about-section-heading">
+        <span class="about-section-kicker">LO QUE NOS UNE</span>
+        <h2>Un lugar para escucharnos y crecer juntos</h2>
+        <p>Cada persona llega con una historia distinta. Nos une el deseo de encontrar herramientas para vivir con más serenidad.</p>
+      </div>
+      <div class="about-value-grid">
+        <article class="about-value-card">
+          <span class="about-value-number">01</span>
+          <div class="about-value-icon" aria-hidden="true"><i class="fa fa-users"></i></div>
+          <h3>Apoyo mutuo</h3>
+          <p>Compartimos nuestras experiencias en un ambiente de comprensión, respeto y escucha.</p>
+        </article>
+        <article class="about-value-card">
+          <span class="about-value-number">02</span>
+          <div class="about-value-icon" aria-hidden="true"><i class="fa fa-heart"></i></div>
+          <h3>Cuidado personal</h3>
+          <p>Recordamos que nuestro bienestar también importa y que podemos aprender a atender nuestras propias necesidades.</p>
+        </article>
+        <article class="about-value-card">
+          <span class="about-value-number">03</span>
+          <div class="about-value-icon" aria-hidden="true"><i class="fa fa-leaf"></i></div>
+          <h3>Serenidad diaria</h3>
+          <p>Avanzamos paso a paso, aceptando lo que no podemos controlar y concentrándonos en el día de hoy.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-cta">
+      <div>
+        <span class="about-section-kicker">TE DAMOS LA BIENVENIDA</span>
+        <h2>No necesitas tener todas las respuestas para dar el primer paso.</h2>
+        <p>Si buscas un espacio para compartir y escuchar, puedes conocer nuestros horarios y comunicarte con nosotros.</p>
+      </div>
+      <a href="{% url 'contactos' %}" class="about-cta-link">Ver información de contacto <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+</section>
 {% endblock %}
