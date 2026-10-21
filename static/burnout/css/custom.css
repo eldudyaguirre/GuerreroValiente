@@ -1021,3 +1021,74 @@ footer .copy-footer {
   text-decoration: none;
   transform: translateY(-2px);
 }
+
+
+/* Plantillas interiores: comparten cabecera y pie con la página principal */
+.inner-page {
+  min-height: 62vh;
+  padding-top: 150px;
+  padding-bottom: 80px;
+  background: #fff;
+}
+.inner-page .heading {
+  margin-bottom: 45px;
+}
+.inner-page .heading h2 {
+  color: #0297FF;
+  font-size: 34px;
+  font-weight: 700;
+}
+.inner-page .heading h2 small {
+  display: block;
+  margin-bottom: 14px;
+  color: #25364a;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+.inner-page-content {
+  max-width: 1050px;
+  margin: 0 auto;
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.inner-page-content h3 {
+  margin-top: 28px;
+  color: #002A6E;
+  font-weight: 700;
+}
+.inner-page-content .service-block {
+  margin-top: 20px;
+  text-align: center;
+}
+.inner-page-content .service-block i {
+  margin-bottom: 15px;
+  color: #0297FF;
+  font-size: 30px;
+}
+.inner-page-content .blog-box {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.inner-page-content .blog-image-block img {
+  width: 100%;
+  border-radius: 5px;
+}
+.inner-page-content .form-group label {
+  color: #25364a;
+}
+.inner-page-content .form-control {
+  min-height: 44px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background: #fff;
+  color: #333;
+  padding: 10px 12px;
+}
+.inner-page-content textarea.form-control {
+  height: auto;
+}
+@media (max-width: 767px) {
+  .inner-page { padding-top: 125px; }
+  .inner-page .heading h2 { font-size: 28px; }
+}
