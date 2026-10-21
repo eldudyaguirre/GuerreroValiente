@@ -1092,3 +1092,35 @@ footer .copy-footer {
   .inner-page { padding-top: 125px; }
   .inner-page .heading h2 { font-size: 28px; }
 }
+
+
+/* Cabecera de páginas interiores: imagen de fondo para mantener visible el logo y el menú. */
+body.interior-page .top-bar.sps--abv {
+  background:
+    linear-gradient(90deg, rgba(0, 35, 82, .82), rgba(0, 42, 110, .58)),
+    url('../img/1.png') center 38% / cover no-repeat !important;
+  min-height: 112px;
+}
+body.interior-page .top-bar.sps--abv .nav-link {
+  color: #fff !important;
+}
+body.interior-page .top-bar.sps--abv .nav-link:hover,
+body.interior-page .top-bar.sps--abv .nav-item.active .nav-link {
+  color: #fff !important;
+  border-bottom: 2px solid #fff;
+}
+body.interior-page .top-bar.sps--abv .navbar-brand .header-logo-blue {
+  display: none !important;
+}
+body.interior-page .top-bar.sps--abv .navbar-brand .header-logo-white {
+  display: block !important;
+}
+body.interior-page .top-bar.sps--blw {
+  background: #fff !important;
+  min-height: 0;
+}
+@media (max-width: 767px) {
+  body.interior-page .top-bar.sps--abv {
+    min-height: 105px;
+  }
+}
