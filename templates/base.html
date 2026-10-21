@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="image/svg+xml" href="{% static 'burnout/img/logoblanco.svg' %}?v=4">
+<title>Guerrer@ Valiente | Nar-anon</title>
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'burnout/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="{% static 'burnout/css/custom.css' %}" rel="stylesheet">
+
+<!-- Helper Styles -->
+<link href="{% static 'burnout/css/loaders.css' %}" rel="stylesheet">
+<link href="{% static 'burnout/css/swiper.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'burnout/css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'burnout/css/nivo-lightbox.css' %}">
+<link rel="stylesheet" href="{% static 'burnout/css/nivo_themes/default/default.css' %}">
+
+<!-- Font Awesome Style -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+{% block loader %}<div class="loader loader-bg"><div class="loader-inner ball-clip-rotate-pulse"><div></div><div></div></div></div>{% endblock %}
+<!-- Top Navigation -->
+    <nav class="navbar navbar-toggleable-md mb-4 top-bar navbar-static-top sps sps--abv">
+        <div class="container">
+      <button class="menu-toggle" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse1" aria-expanded="false" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="navbar-brand" href="/" aria-label="Guerrero Valiente"><img src="{% static 'burnout/img/logoindex.svg' %}" alt="Guerrero Valiente" class="header-logo header-logo-white"><img src="{% static 'burnout/img/logoindex_azul.svg' %}" alt="" aria-hidden="true" class="header-logo header-logo-blue"></a>
+      <div class="collapse navbar-collapse" id="navbarCollapse1">
+        <ul class="navbar-nav ml-auto">
+         <li class="nav-item active"> <a class="nav-link" href="{% url 'inicio' %}">Inicio <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'acerca' %}">Acerca</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'blog' %}">Blog</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'recursos' %}">Recursos</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'naranon' %}">Nar-anon</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'contactos' %}">Contactos</a> </li>
+        </ul>
+      </div>
+            </div>
+    </nav>
+
+    
+
+<main>{% block content %}{% endblock %}</main>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-4">
+        <ul>
+          <li><a href="{% url 'inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'acerca' %}">Acerca</a></li>
+          <li><a href="{% url 'blog' %}">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-4">
+        <ul>
+          <li><a href="{% url 'recursos' %}">Recursos</a></li>
+          <li><a href="{% url 'naranon' %}">Nar-anon</a></li>
+          <li><a href="{% url 'contactos' %}">Contactos</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-4">
+        <ul>
+          <li><a href="#">Políticas de Privacidad</a></li>
+          <li><a href="#">Terminos y Condiciones</a></li>
+          <li><a href="#">Sobre Guerrer@Valiente</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h2>Horarios de Reunión:</h2>
+        <p><strong>Martes:</strong> CEFE – Solo por hoy<br>
+        <strong>Horario:</strong> 7:00 a 9:00 p. m.</p>
+        <p><strong>Jueves:</strong> Estudio de los Pasos<br>
+        <strong>Horario:</strong> 8:00 a 10:00 p. m.</p>
+        <p><strong>Dirección:</strong> José Zorrilla e Isabel la Católica, esquina<br>
+        Cuenca, Ecuador.</p>
+      </div>
+    </div>
+    <div class="row copy-footer">
+      <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href=#></a> Adrián Aguirre Larriva </div>
+      <div class="col-sm-6 col-md-3 pull-right text-xs-right">Guerrer@ Valiente | Nar-anon</div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="{% static 'burnout/js/jquery.min.js' %}" ></script> 
+<script src="{% static 'burnout/js/bootstrap.min.js' %}"></script> 
+<script src="{% static 'burnout/js/scrollPosStyler.js' %}"></script> 
+<script src="{% static 'burnout/js/swiper.min.js' %}"></script> 
+<script src="{% static 'burnout/js/isotope.min.js' %}"></script> 
+<script src="{% static 'burnout/js/nivo-lightbox.min.js' %}"></script> 
+<script src="{% static 'burnout/js/wow.min.js' %}"></script> 
+<script src="{% static 'burnout/js/core.js' %}"></script> 
+
+
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>
