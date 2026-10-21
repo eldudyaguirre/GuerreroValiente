@@ -22,138 +22,7 @@
 <link rel="stylesheet" href="{% static 'burnout/css/animate.min.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo-lightbox.css' %}">
 <link rel="stylesheet" href="{% static 'burnout/css/nivo_themes/default/default.css' %}">
-<style>
-/* Cabecera transparente sobre el carrusel al cargar la página. */
-.top-bar {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1100;
-  background: transparent !important;
-  box-shadow: none;
-  transition: background-color .25s ease, box-shadow .25s ease;
-}
 
-/* Solo cambia a blanco cuando ScrollPosStyler detecta desplazamiento. */
-.top-bar.sps--abv {
-  position: absolute !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-.top-bar.sps--blw {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: #fff !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .14) !important;
-}
-.top-bar .navbar-brand { display: inline-block; position: relative; z-index: 1101; }
-.top-bar .navbar-brand img { visibility: visible !important; opacity: 1 !important; }
-
-/* Enlaces oscuros únicamente sobre el fondo blanco del header desplazado. */
-.top-bar.sps--blw .nav-link {
-  color: #002A6E !important;
-}
-.top-bar.sps--blw .nav-link:hover,
-.top-bar.sps--blw .nav-item.active .nav-link {
-  color: #168fe5 !important;
-}
-.navbar { position: relative; }
-.navbar .menu-toggle {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  position: absolute;
-  right: 16px;
-  top: 24px;
-  z-index: 1050;
-  width: 44px;
-  height: 40px;
-  padding: 9px 10px;
-  border: 1px solid rgba(255,255,255,.65);
-  border-radius: 4px;
-  background: transparent;
-  cursor: pointer;
-}
-.navbar .menu-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  margin: 4px 0;
-  border-radius: 2px;
-  background: #fff;
-}
-@media (max-width: 767px) {
-  .navbar .container {
-    position: relative;
-    padding-right: 60px;
-  }
-
-  .navbar .menu-toggle {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute;
-    right: 12px;
-    top: 18px;
-    z-index: 1201;
-  }
-
-  /* Menú móvil anclado al contenedor de la cabecera */
-  .navbar #navbarCollapse1,
-  .navbar #navbarCollapse1.collapsing,
-  .navbar #navbarCollapse1.show {
-    position: absolute !important;
-    top: 100px !important;
-    right: 12px !important;
-    bottom: auto !important;
-    left: auto !important;
-    transform: none !important;
-    float: none !important;
-    width: 280px !important;
-    max-width: calc(100vw - 32px) !important;
-    height: auto !important;
-    max-height: calc(100vh - 190px);
-    overflow-y: auto;
-    margin: 0 !important;
-    padding: 8px 18px !important;
-    background: #002A6E !important;
-    border: 1px solid rgba(255, 255, 255, .22);
-    border-radius: 6px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
-    z-index: 1200;
-    box-sizing: border-box;
-  }
-
-  .navbar #navbarCollapse1 .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 !important;
-    background: #002A6E !important;
-  }
-
-  .navbar #navbarCollapse1 .nav-item,
-  .navbar #navbarCollapse1 .nav-link {
-    width: 100%;
-    background: #002A6E !important;
-  }
-
-  .navbar #navbarCollapse1 .nav-link {
-    color: #fff !important;
-    padding: 12px 8px !important;
-    border-bottom: 1px solid rgba(255, 255, 255, .18);
-  }
-
-  .navbar #navbarCollapse1 .nav-item:last-child .nav-link {
-    border-bottom: 0;
-  }
-}
-</style>
 <!-- Font Awesome Style -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
@@ -171,7 +40,7 @@
       <button class="menu-toggle" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse1" aria-expanded="false" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
-      <a class="navbar-brand" href="/" aria-label="Guerrero Valiente"><img src="{% static 'burnout/img/logoindex.svg' %}" alt="" style="height: 82px; max-width: 260px; width: auto; object-fit: contain; display: block;"></a>
+      <a class="navbar-brand" href="/" aria-label="Guerrero Valiente"><img src="{% static 'burnout/img/logoindex.svg' %}" alt="Guerrero Valiente" class="header-logo"></a>
       <div class="collapse navbar-collapse" id="navbarCollapse1">
         <ul class="navbar-nav ml-auto">
          <li class="nav-item active"> <a class="nav-link" href="#myCarousel">Inicio <span class="sr-only">(current)</span></a> </li>
