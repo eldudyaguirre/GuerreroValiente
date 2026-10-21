@@ -37,9 +37,9 @@
 .top-bar .navbar-brand img { visibility: visible !important; opacity: 1 !important; }
 .navbar { position: relative; }
 .navbar .menu-toggle {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
   position: absolute;
   right: 16px;
   top: 24px;
@@ -62,7 +62,13 @@
 }
 @media (max-width: 767px) {
   .navbar .container { position: relative; padding-right: 60px; }
-  .navbar .menu-toggle { right: 12px; top: 18px; }
+  .navbar .menu-toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    right: 12px;
+    top: 18px;
+  }
   .main-slider .swiper-slide h2 {
     position: relative;
     top: -55px;
