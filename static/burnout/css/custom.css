@@ -994,3 +994,30 @@ footer .copy-footer {
 .top-bar.sps--blw .navbar-brand .header-logo-blue {
   display: block;
 }
+
+
+/* Botón de entrada en la sección que antes mostraba el video */
+.video-sec .video-entry-btn {
+  display: inline-block;
+  position: relative;
+  margin-top: 22px;
+  padding: 13px 42px;
+  border: 2px solid #0297FF;
+  border-radius: 30px;
+  background: #0297FF;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.video-sec .video-entry-btn:hover,
+.video-sec .video-entry-btn:focus {
+  background: #fff;
+  border-color: #fff;
+  color: #002A6E;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
