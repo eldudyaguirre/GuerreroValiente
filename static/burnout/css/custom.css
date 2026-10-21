@@ -972,3 +972,25 @@ footer .copy-footer {
     top: -85px;
   }
 }
+
+
+/* Cambiar el logotipo según el estado de la cabecera */
+.top-bar .navbar-brand {
+  position: relative;
+}
+.top-bar .navbar-brand .header-logo {
+  height: 82px;
+  max-width: 260px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.top-bar .navbar-brand .header-logo-blue {
+  display: none;
+}
+.top-bar.sps--blw .navbar-brand .header-logo-white {
+  display: none;
+}
+.top-bar.sps--blw .navbar-brand .header-logo-blue {
+  display: block;
+}
