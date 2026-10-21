@@ -122,12 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# Admite las carpetas de recursos existentes en el proyecto.
-# Django buscará los archivos en ambas ubicaciones.
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    BASE_DIR / 'statics',
-]
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 
 
 # Email
