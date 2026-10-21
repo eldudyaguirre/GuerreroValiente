@@ -76,19 +76,27 @@
     z-index: 1201;
   }
 
-  /* Menú desplegable alineado debajo del botón hamburguesa */
-  .navbar #navbarCollapse1 {
+  /* Menú móvil anclado al contenedor de la cabecera */
+  .navbar #navbarCollapse1,
+  .navbar #navbarCollapse1.collapsing,
+  .navbar #navbarCollapse1.show {
     position: absolute !important;
-    top: 68px !important;
+    top: 100px !important;
     right: 12px !important;
+    bottom: auto !important;
     left: auto !important;
-    width: min(280px, calc(100vw - 32px)) !important;
+    transform: none !important;
+    float: none !important;
+    width: 280px !important;
     max-width: calc(100vw - 32px) !important;
+    height: auto !important;
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
     margin: 0 !important;
     padding: 8px 18px !important;
-    background-color: #002A6E !important;
+    background: #002A6E !important;
     border: 1px solid rgba(255, 255, 255, .22);
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
     z-index: 1200;
     box-sizing: border-box;
@@ -99,11 +107,13 @@
     flex-direction: column;
     width: 100%;
     margin: 0 !important;
+    background: #002A6E !important;
   }
 
   .navbar #navbarCollapse1 .nav-item,
   .navbar #navbarCollapse1 .nav-link {
     width: 100%;
+    background: #002A6E !important;
   }
 
   .navbar #navbarCollapse1 .nav-link {
