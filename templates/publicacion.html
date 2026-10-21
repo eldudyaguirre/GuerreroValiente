@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ publicacion.titulo }} | Guerrero Valiente{% endblock %}
+{% block content %}
+<section class="service-sec inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <article class="inner-page-content">
+          <p><a href="{% url 'blog' %}">&larr; Volver al blog</a></p>
+          <div class="heading">
+            <h2>
+              <small>{{ publicacion.categoria|default:"Reflexiones" }}</small>
+              {{ publicacion.titulo }}
+            </h2>
+          </div>
+          {% if publicacion.imagen %}
+          <p><img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}" class="img-fluid"></p>
+          {% endif %}
+          {% if publicacion.resumen %}
+          <p><strong>{{ publicacion.resumen }}</strong></p>
+          {% endif %}
+          <div class="publicacion-contenido">{{ publicacion.contenido|linebreaks }}</div>
+          <p><small>Publicado el {{ publicacion.fecha_publicacion|date:"d/m/Y" }}</small></p>
+        </article>
+      </div>
+      <aside class="col-lg-4">
+        <h3>Otras publicaciones</h3>
+        {% for reciente in publicaciones_recientes %}
+        <div class="blog-box">
+          <h4><a href="{% url 'detalle_publicacion' slug=reciente.slug %}">{{ reciente.titulo }}</a></h4>
+          <p>{{ reciente.resumen|default:reciente.contenido|truncatewords:18 }}</p>
+        </div>
+        {% empty %}
+        <p>No hay otras publicaciones por el momento.</p>
+        {% endfor %}
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}
