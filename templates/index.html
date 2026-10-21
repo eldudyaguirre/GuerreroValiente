@@ -61,13 +61,59 @@
   background: #fff;
 }
 @media (max-width: 767px) {
-  .navbar .container { position: relative; padding-right: 60px; }
+  .navbar .container {
+    position: relative;
+    padding-right: 60px;
+  }
+
   .navbar .menu-toggle {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: absolute;
     right: 12px;
     top: 18px;
+    z-index: 1201;
+  }
+
+  /* Menú desplegable alineado debajo del botón hamburguesa */
+  .navbar #navbarCollapse1 {
+    position: absolute !important;
+    top: 68px !important;
+    right: 12px !important;
+    left: auto !important;
+    width: min(280px, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    margin: 0 !important;
+    padding: 8px 18px !important;
+    background-color: #002A6E !important;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 4px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
+    z-index: 1200;
+    box-sizing: border-box;
+  }
+
+  .navbar #navbarCollapse1 .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .navbar #navbarCollapse1 .nav-item,
+  .navbar #navbarCollapse1 .nav-link {
+    width: 100%;
+  }
+
+  .navbar #navbarCollapse1 .nav-link {
+    color: #fff !important;
+    padding: 12px 8px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .18);
+  }
+
+  .navbar #navbarCollapse1 .nav-item:last-child .nav-link {
+    border-bottom: 0;
   }
 }
 </style>
