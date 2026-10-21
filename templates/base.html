@@ -37,12 +37,24 @@
       <a class="navbar-brand" href="/" aria-label="Guerrero Valiente"><img src="{% static 'burnout/img/logoindex.svg' %}" alt="Guerrero Valiente" class="header-logo header-logo-white"><img src="{% static 'burnout/img/logoindex_azul.svg' %}" alt="" aria-hidden="true" class="header-logo header-logo-blue"></a>
       <div class="collapse navbar-collapse" id="navbarCollapse1">
         <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"> <a class="nav-link" href="{% url 'inicio' %}">Inicio <span class="sr-only">(current)</span></a> </li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'acerca' %}">Acerca</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'blog' %}">Blog</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'recursos' %}">Recursos</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'naranon' %}">Nar-anon</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'contactos' %}">Contactos</a> </li>
+          <li class="nav-item{% if request.resolver_match.url_name == 'inicio' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'inicio' %}">Inicio{% if request.resolver_match.url_name == 'inicio' %} <span class="sr-only">(actual)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item{% if request.resolver_match.url_name == 'acerca' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'acerca' %}">Acerca{% if request.resolver_match.url_name == 'acerca' %} <span class="sr-only">(actual)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item{% if request.resolver_match.url_name == 'blog' or request.resolver_match.url_name == 'detalle_publicacion' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'blog' %}">Blog{% if request.resolver_match.url_name == 'blog' or request.resolver_match.url_name == 'detalle_publicacion' %} <span class="sr-only">(actual)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item{% if request.resolver_match.url_name == 'recursos' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'recursos' %}">Recursos{% if request.resolver_match.url_name == 'recursos' %} <span class="sr-only">(actual)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item{% if request.resolver_match.url_name == 'naranon' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'naranon' %}">Nar-anon{% if request.resolver_match.url_name == 'naranon' %} <span class="sr-only">(actual)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item{% if request.resolver_match.url_name == 'contactos' %} active{% endif %}">
+            <a class="nav-link" href="{% url 'contactos' %}">Contactos{% if request.resolver_match.url_name == 'contactos' %} <span class="sr-only">(actual)</span>{% endif %}</a>
+          </li>
         </ul>
       </div>
             </div>
