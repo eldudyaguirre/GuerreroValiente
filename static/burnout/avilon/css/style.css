@@ -1245,3 +1245,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 #footer .footer-links a:hover {
   color: #1dc8cd;
 }
+
+
+/* Guerrero Valiente integration: keep About Us clear of the fixed site header. */
+#about {
+  padding-top: 180px !important;
+}
