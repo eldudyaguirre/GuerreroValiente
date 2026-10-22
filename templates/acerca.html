@@ -3,6 +3,34 @@
 {% block title %}Guerrero Valiente | Nar-Anon{% endblock %}
 {% block body_class %}interior-page page-acerca{% endblock %}
 {% block extra_head %}
+<style>
+/* FAQ controls are buttons rather than anchors to prevent fragment navigation. */
+#faq-list .faq-toggle {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+#faq-list .faq-toggle:focus {
+  outline: 2px solid #00296d;
+  outline-offset: 3px;
+}
+#faq-list .faq-toggle i {
+  float: right;
+}
+#faq-list .collapse:not(.show) {
+  display: none;
+}
+#faq-list .collapse.show {
+  display: block;
+}
+</style>
+
 <link href="{% static 'burnout/avilon/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'burnout/avilon/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 <link href="{% static 'burnout/avilon/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
@@ -252,7 +280,7 @@
 
         <ul id="faq-list" data-aos="fade-up">
           <li>
-            <a data-toggle="collapse" class="collapsed" href="#faq1">¿Qué es Nar-Anon? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq1" aria-expanded="false">¿Qué es Nar-Anon? <i class="ion-android-remove"></i></button>
             <div id="faq1" class="collapse" data-parent="#faq-list">
               <p>
                 Nar-Anon es una confraternidad para familiares y amigos afectados por la adicción de otra persona. Compartimos experiencia, fortaleza y esperanza para aprender a cuidar de nosotros mismos y encontrar una forma más serena de vivir.
@@ -261,7 +289,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Tengo que tener un familiar que consuma drogas para asistir? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq2" aria-expanded="false">¿Tengo que tener un familiar que consuma drogas para asistir? <i class="ion-android-remove"></i></button>
             <div id="faq2" class="collapse" data-parent="#faq-list">
               <p>
                 El propósito de Nar-Anon es apoyar a quienes se ven afectados por la adicción de otra persona. Si no sabes si el grupo es adecuado para tu situación, puedes acercarte y conversar con sus miembros para conocer mejor el programa.
@@ -270,7 +298,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq3" class="collapsed">¿Tengo que hablar o contar mi historia en la primera reunión? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq3" aria-expanded="false">¿Tengo que hablar o contar mi historia en la primera reunión? <i class="ion-android-remove"></i></button>
             <div id="faq3" class="collapse" data-parent="#faq-list">
               <p>
                 No. Puedes asistir, escuchar y participar a tu propio ritmo. Cada persona decide qué desea compartir y cuándo se siente preparada para hacerlo.
@@ -279,7 +307,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq4" class="collapsed">¿Las reuniones tienen algún costo? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq4" aria-expanded="false">¿Las reuniones tienen algún costo? <i class="ion-android-remove"></i></button>
             <div id="faq4" class="collapse" data-parent="#faq-list">
               <p>
                 La asistencia a las reuniones no tiene un costo de entrada. Según la Séptima Tradición, los grupos pueden aceptar contribuciones voluntarias para cubrir sus gastos. En Guerrer@ Valiente se ha conversado sobre una contribución de grupo; puedes consultar al grupo para conocer cómo se maneja actualmente.
@@ -288,7 +316,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq5" class="collapsed">¿Lo que comparto en una reunión es confidencial? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq5" aria-expanded="false">¿Lo que comparto en una reunión es confidencial? <i class="ion-android-remove"></i></button>
             <div id="faq5" class="collapse" data-parent="#faq-list">
               <p>
                 El anonimato y la confidencialidad son principios importantes de las reuniones. Se espera que los miembros respeten la privacidad de los demás y no divulguen lo que escuchan ni quién asiste.
@@ -297,7 +325,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">¿Nar-Anon puede cambiar o controlar a la persona que tiene una adicción? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq6" aria-expanded="false">¿Nar-Anon puede cambiar o controlar a la persona que tiene una adicción? <i class="ion-android-remove"></i></button>
             <div id="faq6" class="collapse" data-parent="#faq-list">
               <p>
                 El programa no busca controlar a otra persona. Nos ayuda a reconocer qué está bajo nuestra responsabilidad, establecer límites saludables y trabajar en nuestro propio bienestar, sin dejar de sentir amor por nuestro ser querido.
@@ -306,7 +334,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq7" class="collapsed">¿Qué significa “un día a la vez”? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq7" aria-expanded="false">¿Qué significa “un día a la vez”? <i class="ion-android-remove"></i></button>
             <div id="faq7" class="collapse" data-parent="#faq-list">
               <p>
                 Significa concentrarnos en el presente en lugar de intentar resolver todo el futuro de una sola vez. Podemos dar pequeños pasos, buscar apoyo y atender lo que necesitamos hoy.
@@ -315,7 +343,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq8" class="collapsed">¿Qué es Guerrer@ Valiente? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq8" aria-expanded="false">¿Qué es Guerrer@ Valiente? <i class="ion-android-remove"></i></button>
             <div id="faq8" class="collapse" data-parent="#faq-list">
               <p>
                 Guerrer@ Valiente es un grupo de Nar-Anon que nació el 5 de diciembre de 2024 con el propósito de llevar el mensaje y crear un espacio de apoyo, comprensión y esperanza para quienes se ven afectados por la adicción de otra persona.
@@ -324,7 +352,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq9" class="collapsed">¿Cuándo se reúne Guerrer@ Valiente? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq9" aria-expanded="false">¿Cuándo se reúne Guerrer@ Valiente? <i class="ion-android-remove"></i></button>
             <div id="faq9" class="collapse" data-parent="#faq-list">
               <p>
                 En la historia del grupo se registraron reuniones los martes de 9:00 a 10:00 para compartir vivencias y los jueves de 8:00 a 10:00 para estudiar los pasos. Confirma con el grupo los horarios vigentes antes de asistir.
@@ -333,7 +361,7 @@
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq10" class="collapsed">¿Debo tener experiencia previa con los Doce Pasos? <i class="ion-android-remove"></i></a>
+            <button type="button" class="faq-toggle collapsed" data-faq-target="#faq10" aria-expanded="false">¿Debo tener experiencia previa con los Doce Pasos? <i class="ion-android-remove"></i></button>
             <div id="faq10" class="collapse" data-parent="#faq-list">
               <p>
                 No necesitas llegar con experiencia previa. Puedes conocer el programa poco a poco, escuchar a otros miembros y aprender en las reuniones. Lo importante es acercarte con disposición a escuchar y encontrar apoyo.
@@ -351,28 +379,29 @@
 
 
 <script>
-/* FAQ accordion: prevent anchor navigation and toggle answers without depending on Bootstrap's collapse plugin. */
+/* FAQ accordion: use buttons, not fragment links, so the page never jumps to the top. */
 document.addEventListener('DOMContentLoaded', function () {
   var faqList = document.getElementById('faq-list');
   if (!faqList) return;
 
   faqList.addEventListener('click', function (event) {
-    var trigger = event.target.closest('a[href^="#faq"]');
+    var trigger = event.target.closest('button[data-faq-target]');
     if (!trigger || !faqList.contains(trigger)) return;
 
     event.preventDefault();
-    var targetId = trigger.getAttribute('href');
-    var answer = document.querySelector(targetId);
+    event.stopPropagation();
+
+    var targetId = trigger.getAttribute('data-faq-target');
+    var answer = faqList.querySelector(targetId);
     if (!answer) return;
 
     var wasOpen = answer.classList.contains('show');
-
     faqList.querySelectorAll('.collapse').forEach(function (item) {
       item.classList.remove('show');
     });
-    faqList.querySelectorAll('a[href^="#faq"]').forEach(function (link) {
-      link.classList.add('collapsed');
-      link.setAttribute('aria-expanded', 'false');
+    faqList.querySelectorAll('button[data-faq-target]').forEach(function (button) {
+      button.classList.add('collapsed');
+      button.setAttribute('aria-expanded', 'false');
     });
 
     if (!wasOpen) {
@@ -381,8 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
       trigger.setAttribute('aria-expanded', 'true');
     }
   });
-});
-</script>
+});</script>
 
 {% block extra_scripts %}
 <script src="{% static 'burnout/avilon/lib/jquery/jquery.min.js' %}"></script>
