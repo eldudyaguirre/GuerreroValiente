@@ -25,9 +25,20 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = 'django-insecure-lcs(z$tca8knux)wz5kn96fv=$$sv*8eo1e%t3iewre7qop!09'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '100.69.137.3']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '100.69.137.3',
+    'guerrerovaliente.org',
+    'www.guerrerovaliente.org',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://guerrerovaliente.org',
+    'https://www.guerrerovaliente.org',
+]
 
 
 # Application definition
