@@ -1251,3 +1251,50 @@ body.mobile-nav-active #mobile-nav-toggle {
 #about {
   padding-top: 180px !important;
 }
+
+
+/* Guerrero Valiente: keep the shared navigation aligned like the home page. */
+.page-acerca nav.top-bar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.page-acerca nav.top-bar .navbar-brand {
+  flex-shrink: 0;
+}
+
+.page-acerca nav.top-bar .navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
+  flex-grow: 0;
+  align-items: center;
+}
+
+.page-acerca nav.top-bar .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+
+.page-acerca nav.top-bar .navbar-nav .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .page-acerca nav.top-bar > .container {
+    flex-wrap: wrap;
+  }
+
+  .page-acerca nav.top-bar .navbar-collapse {
+    flex-basis: 100%;
+  }
+
+  .page-acerca nav.top-bar .navbar-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
