@@ -17,6 +17,6 @@ class PublicacionAdmin(admin.ModelAdmin):
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "publicado", "fecha_creacion")
-    list_filter = ("publicado",)
+    list_display = ("titulo", "categoria", "publicado", "fecha_creacion")
+    list_filter = ("categoria", "publicado")
     search_fields = ("titulo", "descripcion")
