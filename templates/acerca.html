@@ -391,41 +391,49 @@
 {% endblock %}
 
 
-<script>
-/* FAQ accordion: use buttons, not fragment links, so the page never jumps to the top. */
-document.addEventListener('DOMContentLoaded', function () {
-  var faqList = document.getElementById('faq-list');
-  if (!faqList) return;
 
-  faqList.addEventListener('click', function (event) {
-    var trigger = event.target.closest('button[data-faq-target]');
-    if (!trigger || !faqList.contains(trigger)) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    var targetId = trigger.getAttribute('data-faq-target');
-    var answer = faqList.querySelector(targetId);
-    if (!answer) return;
-
-    var wasOpen = answer.classList.contains('show');
-    faqList.querySelectorAll('.collapse').forEach(function (item) {
-      item.classList.remove('show');
-    });
-    faqList.querySelectorAll('button[data-faq-target]').forEach(function (button) {
-      button.classList.add('collapsed');
-      button.setAttribute('aria-expanded', 'false');
-    });
-
-    if (!wasOpen) {
-      answer.classList.add('show');
-      trigger.classList.remove('collapsed');
-      trigger.setAttribute('aria-expanded', 'true');
-    }
-  });
-});</script>
 
 {% block extra_scripts %}
+<script>
+(function () {
+  function initFaqAccordion() {
+    var faqList = document.getElementById('faq-list');
+    if (!faqList || faqList.dataset.faqReady === 'true') return;
+    faqList.dataset.faqReady = 'true';
+
+    faqList.addEventListener('click', function (event) {
+      var trigger = event.target.closest('button[data-faq-target]');
+      if (!trigger || !faqList.contains(trigger)) return;
+      event.preventDefault();
+
+      var answer = faqList.querySelector(trigger.getAttribute('data-faq-target'));
+      if (!answer) return;
+      var shouldOpen = !answer.classList.contains('show');
+
+      faqList.querySelectorAll('.collapse').forEach(function (panel) {
+        panel.classList.remove('show');
+      });
+      faqList.querySelectorAll('button[data-faq-target]').forEach(function (button) {
+        button.classList.add('collapsed');
+        button.setAttribute('aria-expanded', 'false');
+      });
+
+      if (shouldOpen) {
+        answer.classList.add('show');
+        trigger.classList.remove('collapsed');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFaqAccordion);
+  } else {
+    initFaqAccordion();
+  }
+})();
+</script>
+
 <script src="{% static 'burnout/avilon/lib/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'burnout/avilon/lib/jquery/jquery-migrate.min.js' %}"></script>
 <script src="{% static 'burnout/avilon/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
