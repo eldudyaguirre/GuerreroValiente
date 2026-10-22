@@ -6,14 +6,21 @@ from django.shortcuts import get_object_or_404, render
 from .models import Publicacion, Video
 
 
-def _youtube_embed(url):
-    """Convierte enlaces comunes de YouTube a una URL de inserción segura."""
+def _video_embed(url):
+    """Normaliza enlaces compatibles de YouTube y OK.ru para reproducción integrada."""
     if not url:
         return ""
 
     parsed = urlparse(url)
     host = (parsed.hostname or "").lower()
     video_id = ""
+
+    if host == "ok.ru" or host.endswith(".ok.ru"):
+        match = re.match(r"^/(?:videoembed|video)/(\\d+)", parsed.path)
+        if match:
+            video_id = match.group(1)
+            return f"https://ok.ru/videoembed/{video_id}"
+        return ""
 
     if host in {"youtu.be", "www.youtu.be"}:
         video_id = parsed.path.strip("/").split("/")[0]
@@ -36,7 +43,7 @@ def inicio(request):
     videos = list(Video.objects.filter(publicado=True)[:6])
 
     for video in videos:
-        video.embed_url = _youtube_embed(video.url)
+        video.embed_url = _video_embed(video.url)
 
     return render(request, "index.html", {
         "publicaciones": publicaciones,
