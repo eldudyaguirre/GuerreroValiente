@@ -44,7 +44,22 @@ class Publicacion(models.Model):
 
 
 class Video(models.Model):
+    CATEGORIA_NARANON = "naranon"
+    CATEGORIA_MUSICALES = "musicales"
+    CATEGORIA_PELICULAS = "peliculas"
+    CATEGORIAS = [
+        (CATEGORIA_NARANON, "Material Nar-Anon"),
+        (CATEGORIA_MUSICALES, "Musicales"),
+        (CATEGORIA_PELICULAS, "Películas"),
+    ]
+
     titulo = models.CharField(max_length=200)
+    categoria = models.CharField(
+        max_length=20,
+        choices=CATEGORIAS,
+        default=CATEGORIA_NARANON,
+        db_index=True,
+    )
     descripcion = models.TextField(blank=True)
     url = models.URLField(max_length=500)
     miniatura = models.URLField(max_length=500, blank=True)
