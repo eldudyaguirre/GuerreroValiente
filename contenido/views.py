@@ -7,7 +7,7 @@ from .models import Publicacion, Video
 
 
 def _video_embed(url):
-    """Normaliza enlaces compatibles de YouTube y OK.ru para reproducción integrada."""
+    """Normaliza enlaces de YouTube y OK.ru para reproducción integrada."""
     if not url:
         return ""
 
@@ -24,7 +24,7 @@ def _video_embed(url):
 
     if host in {"youtu.be", "www.youtu.be"}:
         video_id = parsed.path.strip("/").split("/")[0]
-    elif host.endswith("youtube.com") or host.endswith("youtube-nocookie.com"):
+    elif host == "youtube.com" or host.endswith(".youtube.com") or host == "youtube-nocookie.com" or host.endswith(".youtube-nocookie.com"):
         if parsed.path == "/watch":
             video_id = parse_qs(parsed.query).get("v", [""])[0]
         else:
@@ -33,7 +33,7 @@ def _video_embed(url):
                 video_id = match.group(1)
 
     if re.fullmatch(r"[A-Za-z0-9_-]{6,20}", video_id or ""):
-        return f"https://www.youtube-nocookie.com/embed/{video_id}"
+        return f"https://www.youtube.com/embed/{video_id}"
 
     return ""
 
