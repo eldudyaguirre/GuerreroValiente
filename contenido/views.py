@@ -16,7 +16,7 @@ def _video_embed(url):
     video_id = ""
 
     if host == "ok.ru" or host.endswith(".ok.ru"):
-        match = re.match(r"^/(?:videoembed|video)/(\\d+)", parsed.path)
+        match = re.match(r"^/(?:videoembed|video)/(\d+)", parsed.path)
         if match:
             video_id = match.group(1)
             return f"https://ok.ru/videoembed/{video_id}"
