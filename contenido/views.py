@@ -76,6 +76,10 @@ def recursos(request):
     return render(request, "recursos.html")
 
 
+def literatura(request):
+    return render(request, "literatura.html")
+
+
 def naranon(request):
     return render(request, "naranon.html")
 
