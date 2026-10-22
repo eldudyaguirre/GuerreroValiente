@@ -25,6 +25,7 @@
 
 <!-- Font Awesome Style -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+{% block extra_head %}{% endblock %}
 </head>
 <body class="{% block body_class %}interior-page{% endblock %}">
 {% block loader %}<div class="loader loader-bg"><div class="loader-inner ball-clip-rotate-pulse"><div></div><div></div></div></div>{% endblock %}
