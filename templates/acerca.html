@@ -352,6 +352,40 @@
 
 
 {% block extra_scripts %}
+<style>
+@media (max-width: 767px) {
+  body.page-acerca nav.top-bar .menu-toggle {
+    pointer-events: auto !important;
+    z-index: 99999 !important;
+    touch-action: manipulation;
+  }
+  body.page-acerca nav.top-bar #navbarCollapse1 {
+    z-index: 99998 !important;
+  }
+}
+</style>
+<script>
+/* Refuerzo específico de la página Acerca: controla el menú sin Bootstrap. */
+document.addEventListener('click', function (event) {
+  var toggle = event.target.closest('.menu-toggle');
+  if (!toggle || window.innerWidth > 767) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  var menu = document.getElementById('navbarCollapse1');
+  if (!menu) return;
+  var opening = !menu.classList.contains('show') || menu.style.display === 'none';
+  menu.classList.remove('collapsing');
+  if (opening) {
+    menu.classList.add('show');
+    menu.style.setProperty('display', 'block', 'important');
+    toggle.setAttribute('aria-expanded', 'true');
+  } else {
+    menu.classList.remove('show');
+    menu.style.setProperty('display', 'none', 'important');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+}, true);
+</script>
 <script>
 (function () {
   function initFaqAccordion() {
