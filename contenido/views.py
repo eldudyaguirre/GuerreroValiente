@@ -86,7 +86,7 @@ def recursos(request):
 def videos(request):
     videos_publicados = list(Video.objects.filter(publicado=True))
     for video in videos_publicados:
-        video.embed_url = _youtube_embed(video.url)
+        video.embed_url = _video_embed(video.url)
     return render(request, "videos.html", {"videos": videos_publicados})
 
 
