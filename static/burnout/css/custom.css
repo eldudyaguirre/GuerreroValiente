@@ -1094,6 +1094,20 @@ footer .copy-footer {
 }
 
 
+/* En móvil, el menú desplegable usa únicamente el azul de la marca, sin imagen de fondo. */
+@media (max-width: 767px) {
+  body.interior-page .top-bar.sps--abv {
+    background: #002A6E !important;
+    background-image: none !important;
+  }
+  body.interior-page .top-bar.sps--abv #navbarCollapse1,
+  body.interior-page .top-bar.sps--abv #navbarCollapse1.show,
+  body.interior-page .top-bar.sps--abv #navbarCollapse1.collapsing {
+    background: #002A6E !important;
+    background-image: none !important;
+  }
+}
+
 /* Cabecera de páginas interiores: imagen de fondo para mantener visible el logo y el menú. */
 body.interior-page .top-bar.sps--abv {
   background:
