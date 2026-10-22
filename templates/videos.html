@@ -12,7 +12,7 @@
   .video-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:0 auto 42px; }
   .video-tab { border:2px solid #002a6e; border-radius:30px; padding:11px 22px; background:#fff; color:#002a6e; font-weight:700; cursor:pointer; transition:.2s ease; }
   .video-tab:hover,.video-tab:focus,.video-tab.active { background:#002a6e; color:#fff; }
-  .video-category { margin-bottom:48px; scroll-margin-top:110px; }
+  .video-category { margin-bottom:48px; scroll-margin-top:110px; padding-left:24px !important; box-sizing:border-box; }
   .category-heading { margin:0 0 22px; padding-bottom:12px; border-bottom:2px solid rgba(0,42,110,.15); color:#002a6e; font-size:27px; font-weight:700; }
   .category-description { margin:-12px 0 24px; color:#485466; line-height:1.7; }
   .video-card { height:100%; overflow:hidden; border-radius:12px; background:#fff; box-shadow:0 5px 22px rgba(0,42,110,.09); }
@@ -30,6 +30,7 @@
   @media(max-width:767.98px) {
     .videos-section { padding:120px 0 55px; }
     .videos-section > .container { padding-left:28px !important; padding-right:18px !important; }
+    .video-category { padding-left:14px !important; }
     .videos-heading h1 { font-size:28px; }
     .video-content { padding:19px; }
     .video-tab { padding:10px 15px; font-size:14px; }
