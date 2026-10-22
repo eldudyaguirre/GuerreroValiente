@@ -20,8 +20,21 @@
   outline: 2px solid #00296d;
   outline-offset: 3px;
 }
+/* Draw the plus/minus with CSS instead of relying on the Ionicons glyph. */
 #faq-list .faq-toggle i {
+  display: none;
+}
+#faq-list .faq-toggle::after {
+  content: "+";
   float: right;
+  margin-left: 16px;
+  color: #00296d;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+}
+#faq-list .faq-toggle[aria-expanded="true"]::after {
+  content: "−";
 }
 #faq-list .collapse:not(.show) {
   display: none;
