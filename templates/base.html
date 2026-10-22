@@ -32,7 +32,7 @@
 <!-- Top Navigation -->
     <nav class="navbar navbar-toggleable-md mb-4 top-bar navbar-static-top sps sps--abv">
         <div class="container">
-      <button class="menu-toggle" type="button" aria-controls="navbarCollapse1" aria-expanded="false" aria-label="Abrir menú">
+      <button class="menu-toggle" type="button" onclick="return toggleMenuResponsive(event)" aria-controls="navbarCollapse1" aria-expanded="false" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
       <a class="navbar-brand" href="/" aria-label="Guerrero Valiente"><img src="{% static 'burnout/img/logoindex.svg' %}" alt="Guerrero Valiente" class="header-logo header-logo-white"><img src="{% static 'burnout/img/logoindex_azul.svg' %}" alt="" aria-hidden="true" class="header-logo header-logo-blue"></a>
@@ -189,53 +189,43 @@
 <script src="{% static 'burnout/js/core.js' %}"></script> 
 
 
-<!-- Control explícito del menú responsive, independiente del plugin Collapse de Bootstrap. -->
+<!-- Control del menú móvil independiente de los scripts específicos de cada página. -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var menu = document.getElementById('navbarCollapse1');
-  var toggle = document.querySelector('.menu-toggle');
-  if (!menu || !toggle) return;
-
-  function closeMenu() {
-    menu.classList.remove('show');
-    menu.classList.remove('collapsing');
-    menu.style.display = 'none';
-    toggle.setAttribute('aria-expanded', 'false');
-  }
-
-  function openMenu() {
-    menu.classList.remove('collapsing');
-    menu.classList.add('show');
-    menu.style.display = 'block';
-    toggle.setAttribute('aria-expanded', 'true');
-  }
-
-  closeMenu();
-  toggle.addEventListener('click', function (event) {
-    if (window.innerWidth > 767) return;
+function toggleMenuResponsive(event) {
+  if (event) {
     event.preventDefault();
     event.stopPropagation();
-    if (menu.classList.contains('show') && menu.style.display !== 'none') {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
+  }
+  var menu = document.getElementById('navbarCollapse1');
+  var toggle = document.querySelector('.menu-toggle');
+  if (!menu || !toggle || window.innerWidth > 767) return false;
 
+  var open = !menu.classList.contains('show') || menu.style.display === 'none';
+  menu.classList.remove('collapsing');
+  if (open) {
+    menu.classList.add('show');
+    menu.style.setProperty('display', 'block', 'important');
+    toggle.setAttribute('aria-expanded', 'true');
+  } else {
+    menu.classList.remove('show');
+    menu.style.setProperty('display', 'none', 'important');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  return false;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  var menu = document.getElementById('navbarCollapse1');
+  if (!menu) return;
   menu.querySelectorAll('a.nav-link').forEach(function (link) {
     link.addEventListener('click', function () {
-      if (window.innerWidth <= 767) closeMenu();
+      if (window.innerWidth <= 767) {
+        menu.classList.remove('show', 'collapsing');
+        menu.style.setProperty('display', 'none', 'important');
+        var toggle = document.querySelector('.menu-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
     });
-  });
-
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 767) {
-      menu.style.display = '';
-      menu.classList.remove('show');
-      toggle.setAttribute('aria-expanded', 'false');
-    } else if (!menu.classList.contains('show')) {
-      closeMenu();
-    }
   });
 });
 </script>
