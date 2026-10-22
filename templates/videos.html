@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Videos para estudio y reflexión | Guerrero Valiente{% endblock %}
+
+{% block extra_head %}
+<style>
+  .videos-section { padding:145px 0 80px; background:#eef4ed; }
+  .videos-heading { max-width:850px; margin:0 auto 38px; text-align:center; }
+  .videos-heading .pre-title { display:block; margin-bottom:10px; color:#25364a; font-size:15px; font-weight:400; letter-spacing:1.5px; text-transform:uppercase; }
+  .videos-heading h1 { margin:0 0 16px; color:#168fe5; font-size:34px; line-height:1.25; font-weight:700; }
+  .videos-heading p { color:#344254; font-size:16px; line-height:1.8; }
+  .video-card { height:100%; overflow:hidden; border-radius:12px; background:#fff; box-shadow:0 5px 22px rgba(0,42,110,.09); }
+  .video-frame { position:relative; width:100%; aspect-ratio:16/9; background:#071b35; }
+  .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .video-placeholder { display:flex; min-height:180px; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:12px; padding:20px; color:#fff; text-align:center; background:linear-gradient(135deg,#07366c,#168fe5); }
+  .video-placeholder i { font-size:42px; }
+  .video-content { padding:22px; }
+  .video-content h2 { margin:0 0 10px; color:#002a6e; font-size:21px; font-weight:700; }
+  .video-content p { margin:0 0 18px; color:#485466; font-size:14px; line-height:1.75; white-space:pre-line; }
+  .video-link { display:inline-block; padding:10px 16px; border-radius:5px; background:#002a6e; color:#fff !important; font-size:13px; font-weight:700; text-decoration:none !important; }
+  .video-link:hover,.video-link:focus { background:#168fe5; }
+  .videos-empty { padding:34px; border-radius:10px; background:#fff; color:#485466; text-align:center; }
+  .videos-help { margin-top:28px; padding:20px; border-left:4px solid #168fe5; border-radius:6px; background:rgba(255,255,255,.8); color:#485466; font-size:14px; line-height:1.8; }
+  @media(max-width:767.98px) { .videos-section { padding:120px 0 55px; } .videos-heading h1 { font-size:28px; } .video-content { padding:19px; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="videos-section">
+  <div class="container">
+    <header class="videos-heading">
+      <span class="pre-title">Guerrer@ Valiente | Nar-anon</span>
+      <h1>Videos para crecer juntos</h1>
+      <p>Charlas, mensajes, conferencias, música y experiencias que podemos estudiar y analizar en relación con los Doce Pasos y el programa vivencial. Cada video es una invitación a reflexionar, compartir y aprender, un día a la vez.</p>
+    </header>
+
+    <div class="row">
+      {% for video in videos %}
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <article class="video-card">
+          <div class="video-frame">
+            {% if video.embed_url %}
+              <iframe src="{{ video.embed_url }}" title="{{ video.titulo }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            {% elif video.miniatura %}
+              <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer" class="video-placeholder" style="background:linear-gradient(rgba(0,20,45,.45),rgba(0,20,45,.75)),url('{{ video.miniatura|escape }}') center/cover">
+                <i class="fa fa-play-circle" aria-hidden="true"></i><span>Abrir video en su plataforma</span>
+              </a>
+            {% else %}
+              <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer" class="video-placeholder">
+                <i class="fa fa-play-circle" aria-hidden="true"></i><span>Ver en la plataforma original</span>
+              </a>
+            {% endif %}
+          </div>
+          <div class="video-content">
+            <h2>{{ video.titulo }}</h2>
+            {% if video.descripcion %}<p>{{ video.descripcion }}</p>{% endif %}
+            <a class="video-link" href="{{ video.url }}" target="_blank" rel="noopener noreferrer">Abrir en la plataforma <i class="fa fa-external-link" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+      {% empty %}
+      <div class="col-12"><div class="videos-empty"><i class="fa fa-film" aria-hidden="true"></i><h2>Aún no hay videos publicados</h2><p>Estamos preparando materiales para estudiar juntos. Vuelve pronto.</p></div></div>
+      {% endfor %}
+    </div>
+
+    <aside class="videos-help">
+      <strong>¿Quieres agregar un video?</strong> El administrador puede ingresar al panel de Django, abrir la sección <strong>Videos</strong> y registrar el título, la descripción y el enlace original. Marca <strong>Publicado</strong> para mostrarlo en esta página. Los videos de YouTube compatibles se reproducen aquí; otras plataformas se abren en su sitio original cuando no permiten inserción externa.
+    </aside>
+  </div>
+</section>
+{% endblock %}
