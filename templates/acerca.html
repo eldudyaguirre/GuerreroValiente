@@ -349,6 +349,41 @@
 
 {% endblock %}
 
+
+<script>
+/* FAQ accordion: prevent anchor navigation and toggle answers without depending on Bootstrap's collapse plugin. */
+document.addEventListener('DOMContentLoaded', function () {
+  var faqList = document.getElementById('faq-list');
+  if (!faqList) return;
+
+  faqList.addEventListener('click', function (event) {
+    var trigger = event.target.closest('a[href^="#faq"]');
+    if (!trigger || !faqList.contains(trigger)) return;
+
+    event.preventDefault();
+    var targetId = trigger.getAttribute('href');
+    var answer = document.querySelector(targetId);
+    if (!answer) return;
+
+    var wasOpen = answer.classList.contains('show');
+
+    faqList.querySelectorAll('.collapse').forEach(function (item) {
+      item.classList.remove('show');
+    });
+    faqList.querySelectorAll('a[href^="#faq"]').forEach(function (link) {
+      link.classList.add('collapsed');
+      link.setAttribute('aria-expanded', 'false');
+    });
+
+    if (!wasOpen) {
+      answer.classList.add('show');
+      trigger.classList.remove('collapsed');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
+
 {% block extra_scripts %}
 <script src="{% static 'burnout/avilon/lib/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'burnout/avilon/lib/jquery/jquery-migrate.min.js' %}"></script>
