@@ -1298,3 +1298,9 @@ body.mobile-nav-active #mobile-nav-toggle {
     align-items: stretch;
   }
 }
+
+
+/* Guerrero Valiente history heading color */
+.page-acerca #advanced-features .features-row:first-child h2 {
+  color: #00296d;
+}
