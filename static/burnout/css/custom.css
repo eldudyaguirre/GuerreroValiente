@@ -1300,3 +1300,28 @@ footer .copy-footer a {
 footer a:hover {
   color: #8fd3ff;
 }
+
+
+/* Informational footer popups */
+.gv-info-modal .modal-content {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 18px 55px rgba(0, 20, 55, .25);
+  overflow: hidden;
+}
+.gv-info-modal .modal-header {
+  background: #002a6e;
+  color: #fff;
+  border-bottom: 0;
+  padding: 20px 24px;
+}
+.gv-info-modal .modal-title { color: #fff; font-weight: 700; }
+.gv-info-modal .modal-header .close { color: #fff; opacity: .9; text-shadow: none; }
+.gv-info-modal .modal-body { padding: 24px; color: #334155; line-height: 1.75; }
+.gv-info-modal .modal-body h6 { margin-top: 18px; color: #002a6e; font-weight: 700; }
+.gv-info-modal .modal-footer { border-top: 1px solid #e5edf5; }
+.gv-info-modal .modal-footer .btn-secondary { background: #002a6e; border-color: #002a6e; }
+@media (max-width: 575px) {
+  .gv-info-modal .modal-dialog { margin: 12px; }
+  .gv-info-modal .modal-body { padding: 18px; }
+}
