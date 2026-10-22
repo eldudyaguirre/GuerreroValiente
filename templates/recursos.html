@@ -4,183 +4,198 @@
 
 {% block extra_head %}
 <style>
-  /* Tarjetas de recursos: estilos limitados a esta página */
-  .recursos-page {
-    padding: 145px 0 90px;
-    background: #f7f9fc;
-  }
-  .recursos-page .heading {
+  /* Estructura de tarjetas inspirada directamente en el blog de TtCWeb */
+  .recursos-blog-section {
     float: none;
-    width: 100%;
-    margin: 0 auto 48px;
+    padding: 145px 0 85px;
+    background: #f7f8fa;
+  }
+  .recursos-blog-section .recursos-heading {
+    margin: 0 0 42px;
     text-align: center;
   }
-  .recursos-page .heading h2 {
-    color: #002a6e;
-    font-size: clamp(28px, 3vw, 38px);
-    line-height: 1.25;
-    font-weight: 700;
-    margin: 0;
-  }
-  .recursos-page .heading h2 small {
+  .recursos-blog-section .recursos-heading .pre-title {
+    display: block;
+    margin-bottom: 10px;
     color: #168fe5;
     font-size: 13px;
-    letter-spacing: 2.4px;
     font-weight: 700;
-    margin-bottom: 13px;
+    letter-spacing: 2px;
   }
-  .recursos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-    align-items: stretch;
-  }
-  .recurso-card {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid #e8edf4;
-    border-radius: 14px;
-    box-shadow: 0 7px 24px rgba(0, 42, 110, .07);
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .recurso-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(22, 143, 229, .35);
-    box-shadow: 0 16px 35px rgba(0, 42, 110, .13);
-  }
-  .recurso-card-visual {
-    min-height: 185px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #e8f4ff 0%, #f4f8ff 100%);
-  }
-  .recurso-card-visual::before,
-  .recurso-card-visual::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(22, 143, 229, .08);
-  }
-  .recurso-card-visual::before {
-    width: 190px;
-    height: 190px;
-    top: -90px;
-    right: -35px;
-  }
-  .recurso-card-visual::after {
-    width: 130px;
-    height: 130px;
-    bottom: -75px;
-    left: -25px;
-  }
-  .recurso-card-visual i {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 78px;
-    height: 78px;
-    border-radius: 22px;
-    background: #fff;
-    color: #168fe5;
+  .recursos-blog-section .recursos-heading h1 {
+    margin: 0;
+    color: #002a6e;
     font-size: 34px;
-    box-shadow: 0 8px 22px rgba(0, 42, 110, .10);
+    line-height: 1.25;
+    font-weight: 700;
   }
-  .recurso-card-body {
+  .recursos-blog-grid .recurso-item {
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 25px 25px 27px;
+    margin-bottom: 28px;
   }
-  .recurso-card h3 {
+  .recursos-blog-grid .recurso-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .045);
+    transition: box-shadow .3s ease, transform .3s ease;
+  }
+  .recursos-blog-grid .recurso-card:hover {
+    box-shadow: 0 12px 28px rgba(0, 42, 110, .13);
+    transform: translateY(-4px);
+  }
+  .recursos-blog-grid .recurso-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 225px;
+    overflow: hidden;
+    background: #e9f0f7;
+  }
+  .recursos-blog-grid .recurso-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+  .recursos-blog-grid .recurso-card:hover .recurso-image img {
+    transform: scale(1.07);
+  }
+  .recursos-blog-grid .recurso-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px 18px;
+    padding: 17px 12px 0;
+    color: #168fe5;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .recursos-blog-grid .recurso-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .recursos-blog-grid .recurso-meta i {
+    color: #168fe5;
+  }
+  .recursos-blog-grid .recurso-caption {
+    flex: 1;
+    padding: 0;
+  }
+  .recursos-blog-grid .recurso-caption .recurso-body {
+    padding: 18px 25px 28px;
+    text-align: center;
+  }
+  .recursos-blog-grid .recurso-caption h2 {
     margin: 0 0 12px;
     color: #002a6e;
     font-size: 21px;
-    line-height: 1.35;
     font-weight: 700;
+    line-height: 1.35;
+    transition: color .25s ease;
   }
-  .recurso-card p {
+  .recursos-blog-grid .recurso-caption p {
     margin: 0;
     padding: 0;
-    color: #5d6878;
+    color: #5a6472;
     font-size: 15px;
     line-height: 1.7;
   }
-  .recurso-card-label {
-    display: inline-block;
-    margin-top: 22px;
-    padding: 7px 11px;
-    border-radius: 20px;
-    background: #edf6ff;
-    color: #0879cc;
-    font-size: 11px;
-    line-height: 1.3;
-    font-weight: 700;
-    letter-spacing: .6px;
-    text-transform: uppercase;
+  .recursos-blog-grid .recurso-card:hover .recurso-caption h2 {
+    color: #168fe5;
   }
-  @media (max-width: 991px) {
-    .recursos-grid { gap: 18px; }
-    .recurso-card-body { padding: 22px 20px 24px; }
-    .recurso-card h3 { font-size: 19px; }
-    .recurso-card-visual { min-height: 155px; }
-  }
-  @media (max-width: 767px) {
-    .recursos-page { padding: 125px 0 60px; }
-    .recursos-page .heading { margin-bottom: 32px; }
-    .recursos-grid { grid-template-columns: 1fr; gap: 20px; max-width: 480px; margin: 0 auto; }
-    .recurso-card-visual { min-height: 145px; }
-    .recurso-card-body { padding: 22px; }
+  @media (max-width: 767.98px) {
+    .recursos-blog-section {
+      padding: 120px 0 55px;
+    }
+    .recursos-blog-section .recursos-heading {
+      margin-bottom: 30px;
+    }
+    .recursos-blog-section .recursos-heading h1 {
+      font-size: 28px;
+    }
+    .recursos-blog-grid .recurso-item {
+      margin-bottom: 22px;
+    }
+    .recursos-blog-grid .recurso-image {
+      height: 215px;
+    }
+    .recursos-blog-grid .recurso-caption .recurso-body {
+      padding: 18px 20px 24px;
+    }
   }
 </style>
 {% endblock %}
 
 {% block content %}
-<section class="service-sec inner-page recursos-page">
+<section class="recursos-blog-section">
   <div class="container">
-    <div class="heading">
-      <h2><small>HERRAMIENTAS PARA EL CAMINO</small>Recursos para encontrar serenidad</h2>
-    </div>
+    <header class="recursos-heading">
+      <span class="pre-title">HERRAMIENTAS PARA EL CAMINO</span>
+      <h1>Recursos para encontrar serenidad</h1>
+    </header>
 
-    <div class="recursos-grid">
-      <article class="recurso-card">
-        <div class="recurso-card-visual" aria-hidden="true">
-          <i class="fa fa-book"></i>
-        </div>
-        <div class="recurso-card-body">
-          <h3>Lecturas y reflexión</h3>
-          <p>Materiales de lectura, reflexiones y herramientas para acompañar tu proceso, un día a la vez.</p>
-          <span class="recurso-card-label">Aprender y reflexionar</span>
+    <div class="row recursos-blog-grid">
+      <article class="col-12 col-md-4 recurso-item">
+        <div class="recurso-card">
+          <div class="recurso-image">
+            <img src="{% static 'burnout/img/blog-01.jpg' %}" alt="Lecturas y reflexión para acompañar el camino de recuperación" loading="lazy">
+          </div>
+          <div class="recurso-meta">
+            <span><i class="fa fa-book" aria-hidden="true"></i> Lectura</span>
+            <span><i class="fa fa-leaf" aria-hidden="true"></i> Reflexión</span>
+          </div>
+          <div class="recurso-caption">
+            <div class="recurso-body">
+              <h2>Lecturas y reflexión</h2>
+              <p>Materiales de lectura y reflexiones para acompañar tu proceso, un día a la vez.</p>
+            </div>
+          </div>
         </div>
       </article>
 
-      <article class="recurso-card">
-        <div class="recurso-card-visual" aria-hidden="true">
-          <i class="fa fa-heart"></i>
-        </div>
-        <div class="recurso-card-body">
-          <h3>Cuidado personal</h3>
-          <p>Ideas para recordar que tu bienestar también merece atención, paciencia y tiempo.</p>
-          <span class="recurso-card-label">Dedicarte tiempo</span>
+      <article class="col-12 col-md-4 recurso-item">
+        <div class="recurso-card">
+          <div class="recurso-image">
+            <img src="{% static 'burnout/img/blog-02.jpg' %}" alt="Cuidado personal y bienestar emocional" loading="lazy">
+          </div>
+          <div class="recurso-meta">
+            <span><i class="fa fa-heart" aria-hidden="true"></i> Bienestar</span>
+            <span><i class="fa fa-sun-o" aria-hidden="true"></i> Un día a la vez</span>
+          </div>
+          <div class="recurso-caption">
+            <div class="recurso-body">
+              <h2>Cuidado personal</h2>
+              <p>Ideas para recordar que tu bienestar también merece atención, paciencia y tiempo.</p>
+            </div>
+          </div>
         </div>
       </article>
 
-      <article class="recurso-card">
-        <div class="recurso-card-visual" aria-hidden="true">
-          <i class="fa fa-hands-helping"></i>
-        </div>
-        <div class="recurso-card-body">
-          <h3>Apoyo externo</h3>
-          <p>Información sobre recursos y espacios de ayuda que pueden complementar tu camino de recuperación.</p>
-          <span class="recurso-card-label">Encontrar apoyo</span>
+      <article class="col-12 col-md-4 recurso-item">
+        <div class="recurso-card">
+          <div class="recurso-image">
+            <img src="{% static 'burnout/img/blog-03.jpg' %}" alt="Apoyo y acompañamiento para familiares y seres queridos" loading="lazy">
+          </div>
+          <div class="recurso-meta">
+            <span><i class="fa fa-users" aria-hidden="true"></i> Comunidad</span>
+            <span><i class="fa fa-handshake-o" aria-hidden="true"></i> Apoyo</span>
+          </div>
+          <div class="recurso-caption">
+            <div class="recurso-body">
+              <h2>Apoyo externo</h2>
+              <p>Información sobre recursos y espacios de ayuda que pueden complementar tu camino.</p>
+            </div>
+          </div>
         </div>
       </article>
     </div>
