@@ -4,33 +4,7 @@
 
 {% block extra_head %}
 <style>
-  .recursos-blog-section { float:none; padding:145px 0 85px; background:#eef4ed; }
-  .recursos-blog-section .recursos-heading { margin:0 0 42px; text-align:center; }
-  .recursos-blog-section .recursos-heading .pre-title { display:block; margin-bottom:10px; color:#002a6e; font-size:13px; font-weight:600; letter-spacing:2px; }
-  .recursos-blog-section .recursos-heading h1 {
-    display:block;
-    position:relative;
-    margin:0;
-    padding:0;
-    border:0;
-    color:#168fe5;
-    font-family:inherit;
-    font-size:34px;
-    font-weight:700;
-    line-height:1.25;
-    letter-spacing:normal;
-    text-transform:none;
-    text-align:center;
-    background:none;
-    box-shadow:none;
-  }
-  .recursos-blog-section .recursos-heading h1::before,
-  .recursos-blog-section .recursos-heading h1::after {
-    content:none !important;
-    display:none !important;
-    border:0 !important;
-    background:none !important;
-  }
+  .recursos-blog-section { float:none; padding:0 0 85px; background:#fff; }
   .recursos-blog-grid .recurso-item { display:flex; margin-bottom:28px; }
   .recursos-blog-grid .recurso-card { position:relative; display:block; width:100%; min-height:360px; height:100%; padding:0; margin:0; overflow:hidden; border:0; border-radius:10px; background:#002a6e; box-shadow:0 5px 18px rgba(0,0,0,.08); isolation:isolate; }
   .recursos-blog-grid .recurso-image, .recursos-blog-grid .recurso-image::after, .recursos-blog-grid .recurso-image img { position:absolute; inset:0; width:100%; height:100%; }
@@ -56,9 +30,7 @@
     .recursos-blog-grid .recurso-overlay p { font-size:14px; }
   }
   @media (max-width:767.98px) {
-    .recursos-blog-section { padding:120px 0 55px; }
-    .recursos-blog-section .recursos-heading { margin-bottom:30px; }
-    .recursos-blog-section .recursos-heading h1 { font-size:28px; }
+    .recursos-blog-section { padding:0 0 55px; }
     .recursos-blog-grid .recurso-item { margin-bottom:22px; }
   }
   @media (prefers-reduced-motion:reduce) { .recursos-blog-grid .recurso-card *, .recursos-blog-grid .recurso-card { transition:none !important; } }
@@ -66,12 +38,17 @@
 {% endblock %}
 
 {% block content %}
-<section class="recursos-blog-section">
+<section class="service-sec inner-page recursos-blog-section">
   <div class="container">
-    <header class="recursos-heading">
-      <span class="pre-title">Guerrer@ Valiente | Nar-anon</span>
-      <h1>Recursos para apoyar tu proceso</h1>
-    </header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading text-md-center text-xs-center">
+          <h2>
+            <small>Guerrer@ Valiente | Nar-anon</small>Recursos para apoyar tu proceso
+          </h2>
+        </div>
+      </div>
+    </div>
     <div class="row recursos-blog-grid">
       <div class="col-12 col-md-4 recurso-item">
         <article class="recurso-card">
