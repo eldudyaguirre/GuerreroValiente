@@ -1282,3 +1282,21 @@ body.interior-page .top-bar.sps--blw {
   .about-value-grid { grid-template-columns: 1fr; gap: 15px; }
   .about-cta { flex-direction: column; align-items: flex-start; padding: 30px 24px; }
 }
+
+
+/* Footer brand color: Guerrero Valiente logo navy blue */
+footer {
+  background-color: #00296d !important;
+  color: #ffffff;
+}
+footer h2,
+footer p,
+footer li,
+footer a,
+footer .copy-footer,
+footer .copy-footer a {
+  color: #ffffff;
+}
+footer a:hover {
+  color: #8fd3ff;
+}
