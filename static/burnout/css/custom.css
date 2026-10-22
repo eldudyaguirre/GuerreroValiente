@@ -1339,3 +1339,25 @@ footer a:hover {
   .gv-info-modal .modal-dialog { margin: 12px; }
   .gv-info-modal .modal-body { padding: 18px; }
 }
+
+
+/* Corrección definitiva del encabezado móvil en páginas interiores:
+   el fondo debe ser azul sólido, nunca la fotografía del encabezado de escritorio. */
+@media screen and (max-width: 767px) {
+  body.interior-page nav.navbar.top-bar,
+  body.interior-page nav.navbar.top-bar.sps--abv,
+  body.interior-page nav.navbar.top-bar.sps--blw {
+    background: #002A6E !important;
+    background-image: none !important;
+  }
+  body.interior-page nav.navbar.top-bar #navbarCollapse1 {
+    display: none;
+    background: #002A6E !important;
+    background-image: none !important;
+  }
+  body.interior-page nav.navbar.top-bar #navbarCollapse1.show {
+    display: block !important;
+    background: #002A6E !important;
+    background-image: none !important;
+  }
+}
