@@ -354,6 +354,13 @@
 {% block extra_scripts %}
 <style>
 @media (max-width: 767px) {
+  /* Al cargar Acerca, el menú debe empezar cerrado. */
+  body.page-acerca nav.top-bar #navbarCollapse1:not(.show) {
+    display: none !important;
+  }
+  body.page-acerca nav.top-bar #navbarCollapse1.show {
+    display: block !important;
+  }
   body.page-acerca nav.top-bar .menu-toggle {
     pointer-events: auto !important;
     z-index: 99999 !important;
@@ -365,6 +372,17 @@
 }
 </style>
 <script>
+/* Acerca debe cargar siempre con el menú cerrado en responsive. */
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.innerWidth > 767) return;
+  var menu = document.getElementById('navbarCollapse1');
+  var toggle = document.querySelector('.menu-toggle');
+  if (!menu) return;
+  menu.classList.remove('show', 'collapsing');
+  menu.style.setProperty('display', 'none', 'important');
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
+});
+
 /* Refuerzo específico de la página Acerca: controla el menú sin Bootstrap. */
 document.addEventListener('click', function (event) {
   var toggle = event.target.closest('.menu-toggle');
