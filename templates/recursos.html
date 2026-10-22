@@ -4,135 +4,41 @@
 
 {% block extra_head %}
 <style>
-  /* Estructura de tarjetas inspirada directamente en el blog de TtCWeb */
-  .recursos-blog-section {
-    float: none;
-    padding: 145px 0 85px;
-    background: #f7f8fa;
+  .recursos-blog-section { float:none; padding:145px 0 85px; background:#eef4ed; }
+  .recursos-blog-section .recursos-heading { margin:0 0 42px; text-align:center; }
+  .recursos-blog-section .recursos-heading .pre-title { display:block; margin-bottom:10px; color:#002a6e; font-size:13px; font-weight:600; letter-spacing:2px; }
+  .recursos-blog-section .recursos-heading h1 { margin:0; color:#168fe5; font-size:34px; line-height:1.25; font-weight:700; }
+  .recursos-blog-grid .recurso-item { display:flex; margin-bottom:28px; }
+  .recursos-blog-grid .recurso-card { position:relative; display:block; width:100%; min-height:360px; height:100%; padding:0; margin:0; overflow:hidden; border:0; border-radius:10px; background:#002a6e; box-shadow:0 5px 18px rgba(0,0,0,.08); isolation:isolate; }
+  .recursos-blog-grid .recurso-image, .recursos-blog-grid .recurso-image::after, .recursos-blog-grid .recurso-image img { position:absolute; inset:0; width:100%; height:100%; }
+  .recursos-blog-grid .recurso-image { overflow:hidden; z-index:-2; }
+  .recursos-blog-grid .recurso-image img { display:block; object-fit:cover; object-position:center; transition:transform .55s ease; }
+  .recursos-blog-grid .recurso-image::after { content:""; z-index:1; background:linear-gradient(180deg,rgba(0,20,45,.12) 0%,rgba(0,20,45,.34) 45%,rgba(0,20,45,.78) 100%); transition:background .35s ease; }
+  .recursos-blog-grid .recurso-card:hover .recurso-image img, .recursos-blog-grid .recurso-card:focus-within .recurso-image img { transform:scale(1.08); }
+  .recursos-blog-grid .recurso-card:hover .recurso-image::after, .recursos-blog-grid .recurso-card:focus-within .recurso-image::after { background:rgba(0,23,54,.84); }
+  .recursos-blog-grid .recurso-front { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:28px; text-align:center; opacity:1; transition:opacity .3s ease,transform .3s ease; }
+  .recursos-blog-grid .recurso-front h2 { margin:0; color:#fff; font-size:25px; font-weight:700; line-height:1.28; text-shadow:0 2px 10px rgba(0,0,0,.45); }
+  .recursos-blog-grid .recurso-overlay { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px 25px; text-align:center; color:#fff; background:rgba(0,23,54,.88); opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity .32s ease,visibility .32s ease,transform .32s ease; }
+  .recursos-blog-grid .recurso-overlay .recurso-meta { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px 16px; margin-bottom:18px; color:#39c2d0; font-size:13px; }
+  .recursos-blog-grid .recurso-overlay .recurso-meta span { display:inline-flex; align-items:center; gap:6px; }
+  .recursos-blog-grid .recurso-overlay h2 { margin:0 0 14px; color:#fff; font-size:24px; font-weight:700; line-height:1.3; }
+  .recursos-blog-grid .recurso-overlay p { margin:0; padding:0; color:rgba(255,255,255,.92); font-size:15px; line-height:1.7; }
+  .recursos-blog-grid .recurso-card:hover .recurso-front, .recursos-blog-grid .recurso-card:focus-within .recurso-front { opacity:0; transform:translateY(-8px); }
+  .recursos-blog-grid .recurso-card:hover .recurso-overlay, .recursos-blog-grid .recurso-card:focus-within .recurso-overlay { opacity:1; visibility:visible; transform:translateY(0); }
+  @media (hover:none), (max-width:767.98px) {
+    .recursos-blog-grid .recurso-card { min-height:340px; }
+    .recursos-blog-grid .recurso-front { display:none; }
+    .recursos-blog-grid .recurso-overlay { inset:auto 0 0; min-height:68%; padding:22px 20px; opacity:1; visibility:visible; transform:none; background:linear-gradient(180deg,transparent 0%,rgba(0,23,54,.88) 24%,rgba(0,23,54,.94) 100%); }
+    .recursos-blog-grid .recurso-overlay h2 { font-size:22px; }
+    .recursos-blog-grid .recurso-overlay p { font-size:14px; }
   }
-  .recursos-blog-section .recursos-heading {
-    margin: 0 0 42px;
-    text-align: center;
+  @media (max-width:767.98px) {
+    .recursos-blog-section { padding:120px 0 55px; }
+    .recursos-blog-section .recursos-heading { margin-bottom:30px; }
+    .recursos-blog-section .recursos-heading h1 { font-size:28px; }
+    .recursos-blog-grid .recurso-item { margin-bottom:22px; }
   }
-  .recursos-blog-section .recursos-heading .pre-title {
-    display: block;
-    margin-bottom: 10px;
-    color: #168fe5;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  .recursos-blog-section .recursos-heading h1 {
-    margin: 0;
-    color: #002a6e;
-    font-size: 34px;
-    line-height: 1.25;
-    font-weight: 700;
-  }
-  .recursos-blog-grid .recurso-item {
-    display: flex;
-    margin-bottom: 28px;
-  }
-  .recursos-blog-grid .recurso-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, .045);
-    transition: box-shadow .3s ease, transform .3s ease;
-  }
-  .recursos-blog-grid .recurso-card:hover {
-    box-shadow: 0 12px 28px rgba(0, 42, 110, .13);
-    transform: translateY(-4px);
-  }
-  .recursos-blog-grid .recurso-image {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 225px;
-    overflow: hidden;
-    background: #e9f0f7;
-  }
-  .recursos-blog-grid .recurso-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .4s ease;
-  }
-  .recursos-blog-grid .recurso-card:hover .recurso-image img {
-    transform: scale(1.07);
-  }
-  .recursos-blog-grid .recurso-meta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 7px 18px;
-    padding: 17px 12px 0;
-    color: #168fe5;
-    font-size: 12px;
-    line-height: 1.5;
-  }
-  .recursos-blog-grid .recurso-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .recursos-blog-grid .recurso-meta i {
-    color: #168fe5;
-  }
-  .recursos-blog-grid .recurso-caption {
-    flex: 1;
-    padding: 0;
-  }
-  .recursos-blog-grid .recurso-caption .recurso-body {
-    padding: 18px 25px 28px;
-    text-align: center;
-  }
-  .recursos-blog-grid .recurso-caption h2 {
-    margin: 0 0 12px;
-    color: #002a6e;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1.35;
-    transition: color .25s ease;
-  }
-  .recursos-blog-grid .recurso-caption p {
-    margin: 0;
-    padding: 0;
-    color: #5a6472;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-  .recursos-blog-grid .recurso-card:hover .recurso-caption h2 {
-    color: #168fe5;
-  }
-  @media (max-width: 767.98px) {
-    .recursos-blog-section {
-      padding: 120px 0 55px;
-    }
-    .recursos-blog-section .recursos-heading {
-      margin-bottom: 30px;
-    }
-    .recursos-blog-section .recursos-heading h1 {
-      font-size: 28px;
-    }
-    .recursos-blog-grid .recurso-item {
-      margin-bottom: 22px;
-    }
-    .recursos-blog-grid .recurso-image {
-      height: 215px;
-    }
-    .recursos-blog-grid .recurso-caption .recurso-body {
-      padding: 18px 20px 24px;
-    }
-  }
+  @media (prefers-reduced-motion:reduce) { .recursos-blog-grid .recurso-card *, .recursos-blog-grid .recurso-card { transition:none !important; } }
 </style>
 {% endblock %}
 
@@ -143,61 +49,40 @@
       <span class="pre-title">HERRAMIENTAS PARA EL CAMINO</span>
       <h1>Recursos para encontrar serenidad</h1>
     </header>
-
     <div class="row recursos-blog-grid">
-      <article class="col-12 col-md-4 recurso-item">
-        <div class="recurso-card">
-          <div class="recurso-image">
-            <img src="{% static 'burnout/img/blog-01.jpg' %}" alt="Lecturas y reflexión para acompañar el camino de recuperación" loading="lazy">
+      <div class="col-12 col-md-4 recurso-item">
+        <article class="recurso-card">
+          <div class="recurso-image" aria-hidden="true"><img src="{% static 'burnout/img/blog-01.jpg' %}" alt="" loading="lazy"></div>
+          <div class="recurso-front"><h2>Lecturas y reflexión</h2></div>
+          <div class="recurso-overlay">
+            <div class="recurso-meta"><span><i class="fa fa-book" aria-hidden="true"></i> Lectura</span><span><i class="fa fa-leaf" aria-hidden="true"></i> Reflexión</span></div>
+            <h2>Lecturas y reflexión</h2>
+            <p>Encuentra lecturas, pensamientos y herramientas que te ayuden a comprender tus emociones y avanzar en tu proceso, un día a la vez.</p>
           </div>
-          <div class="recurso-meta">
-            <span><i class="fa fa-book" aria-hidden="true"></i> Lectura</span>
-            <span><i class="fa fa-leaf" aria-hidden="true"></i> Reflexión</span>
+        </article>
+      </div>
+      <div class="col-12 col-md-4 recurso-item">
+        <article class="recurso-card">
+          <div class="recurso-image" aria-hidden="true"><img src="{% static 'burnout/img/blog-02.jpg' %}" alt="" loading="lazy"></div>
+          <div class="recurso-front"><h2>Cuidado personal</h2></div>
+          <div class="recurso-overlay">
+            <div class="recurso-meta"><span><i class="fa fa-heart" aria-hidden="true"></i> Bienestar</span><span><i class="fa fa-sun-o" aria-hidden="true"></i> Un día a la vez</span></div>
+            <h2>Cuidado personal</h2>
+            <p>Ideas sencillas para cuidar de ti, establecer límites saludables y recordar que tu bienestar también merece atención, paciencia y tiempo.</p>
           </div>
-          <div class="recurso-caption">
-            <div class="recurso-body">
-              <h2>Lecturas y reflexión</h2>
-              <p>Materiales de lectura y reflexiones para acompañar tu proceso, un día a la vez.</p>
-            </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-4 recurso-item">
+        <article class="recurso-card">
+          <div class="recurso-image" aria-hidden="true"><img src="{% static 'burnout/img/blog-03.jpg' %}" alt="" loading="lazy"></div>
+          <div class="recurso-front"><h2>Apoyo externo</h2></div>
+          <div class="recurso-overlay">
+            <div class="recurso-meta"><span><i class="fa fa-users" aria-hidden="true"></i> Comunidad</span><span><i class="fa fa-handshake-o" aria-hidden="true"></i> Apoyo</span></div>
+            <h2>Apoyo externo</h2>
+            <p>Conoce otros recursos y espacios de ayuda que pueden complementar el acompañamiento de Nar-Anon y apoyar a tu familia.</p>
           </div>
-        </div>
-      </article>
-
-      <article class="col-12 col-md-4 recurso-item">
-        <div class="recurso-card">
-          <div class="recurso-image">
-            <img src="{% static 'burnout/img/blog-02.jpg' %}" alt="Cuidado personal y bienestar emocional" loading="lazy">
-          </div>
-          <div class="recurso-meta">
-            <span><i class="fa fa-heart" aria-hidden="true"></i> Bienestar</span>
-            <span><i class="fa fa-sun-o" aria-hidden="true"></i> Un día a la vez</span>
-          </div>
-          <div class="recurso-caption">
-            <div class="recurso-body">
-              <h2>Cuidado personal</h2>
-              <p>Ideas para recordar que tu bienestar también merece atención, paciencia y tiempo.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="col-12 col-md-4 recurso-item">
-        <div class="recurso-card">
-          <div class="recurso-image">
-            <img src="{% static 'burnout/img/blog-03.jpg' %}" alt="Apoyo y acompañamiento para familiares y seres queridos" loading="lazy">
-          </div>
-          <div class="recurso-meta">
-            <span><i class="fa fa-users" aria-hidden="true"></i> Comunidad</span>
-            <span><i class="fa fa-handshake-o" aria-hidden="true"></i> Apoyo</span>
-          </div>
-          <div class="recurso-caption">
-            <div class="recurso-body">
-              <h2>Apoyo externo</h2>
-              <p>Información sobre recursos y espacios de ayuda que pueden complementar tu camino.</p>
-            </div>
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   </div>
 </section>
