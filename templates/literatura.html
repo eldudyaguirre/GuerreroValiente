@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Literatura Nar-Anon | Guerrero Valiente{% endblock %}
+
+{% block extra_head %}
+<style>
+  .literatura-section { float:none; padding:145px 0 85px; background:#eef4ed; }
+  .literatura-section .literatura-heading { margin:0 auto 24px; max-width:850px; text-align:center; }
+  .literatura-section .pre-title { display:block; margin-bottom:10px; color:#002a6e; font-size:13px; font-weight:600; letter-spacing:2px; }
+  .literatura-section h1 { margin:0 0 18px; color:#168fe5; font-size:34px; line-height:1.25; font-weight:700; }
+  .literatura-section .intro { max-width:760px; margin:0 auto; color:#344254; font-size:16px; line-height:1.8; }
+  .literatura-options { margin-top:38px; }
+  .literatura-card { height:100%; padding:32px 28px; border-radius:12px; background:#fff; box-shadow:0 5px 22px rgba(0,42,110,.09); }
+  .literatura-card .literatura-icon { display:flex; align-items:center; justify-content:center; width:58px; height:58px; margin:0 auto 18px; border-radius:50%; background:#e6f3f5; color:#168fe5; font-size:25px; }
+  .literatura-card h2 { margin:0 0 14px; color:#002a6e; text-align:center; font-size:23px; font-weight:700; }
+  .literatura-card p { color:#485466; font-size:15px; line-height:1.75; }
+  .literatura-card ul { padding-left:20px; margin:0 0 22px; color:#485466; font-size:14px; line-height:1.9; }
+  .literatura-btn { display:inline-block; padding:12px 20px; border-radius:5px; background:#002a6e; color:#fff !important; font-size:14px; font-weight:700; text-align:center; text-decoration:none !important; transition:background .2s ease, transform .2s ease; }
+  .literatura-btn:hover, .literatura-btn:focus { background:#168fe5; color:#fff !important; transform:translateY(-2px); }
+  .literatura-card .btn-wrap { text-align:center; }
+  .literatura-note { margin-top:28px; padding:20px 22px; border-left:4px solid #168fe5; border-radius:6px; background:rgba(255,255,255,.75); color:#485466; font-size:14px; line-height:1.8; }
+  .literatura-note strong { color:#002a6e; }
+  .literatura-links { margin-top:24px; text-align:center; font-size:14px; line-height:1.9; }
+  .literatura-links a { color:#006db8; text-decoration:underline; }
+  @media (max-width:767.98px) {
+    .literatura-section { padding:120px 0 55px; }
+    .literatura-section h1 { font-size:28px; }
+    .literatura-card { padding:27px 22px; }
+    .literatura-options > div { margin-bottom:20px; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="literatura-section">
+  <div class="container">
+    <header class="literatura-heading">
+      <span class="pre-title">Guerrer@ Valiente | Nar-anon</span>
+      <h1>Literatura para acompañar tu proceso</h1>
+      <p class="intro">Los libros y folletos de Nar-Anon reúnen la experiencia compartida de familiares y amigos afectados por la adicción de otra persona. Puedes explorar opciones impresas para leer en papel o versiones digitales para tus dispositivos.</p>
+    </header>
+
+    <div class="row literatura-options">
+      <div class="col-12 col-md-6 mb-4">
+        <article class="literatura-card">
+          <div class="literatura-icon" aria-hidden="true"><i class="fa fa-book"></i></div>
+          <h2>Libros físicos en español</h2>
+          <p>Consulta el catálogo oficial de literatura en español de Nar-Anon. Allí encontrarás libros, folletos y otros materiales publicados por la confraternidad.</p>
+          <ul>
+            <li>Lecturas para la recuperación personal y familiar.</li>
+            <li>Materiales sobre los Doce Pasos, padrinazgo y tradiciones.</li>
+            <li>Folletos y recursos para miembros y grupos.</li>
+          </ul>
+          <div class="btn-wrap">
+            <a class="literatura-btn" href="https://nar-anon-webstore.myshopify.com/collections/spanish-literature" target="_blank" rel="noopener noreferrer">Ver literatura impresa <i class="fa fa-external-link" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 mb-4">
+        <article class="literatura-card">
+          <div class="literatura-icon" aria-hidden="true"><i class="fa fa-tablet"></i></div>
+          <h2>Libros electrónicos (eBooks)</h2>
+          <p>Si prefieres leer desde tu celular, tableta o computadora, revisa la selección de libros electrónicos de Nar-Anon en español y las plataformas donde se ofrecen.</p>
+          <ul>
+            <li>Opciones para Kindle, Apple Books y Google Play, según el título.</li>
+            <li>Disponibilidad y formato pueden variar según el país y el dispositivo.</li>
+            <li>Revisa la ficha de cada libro antes de comprarlo.</li>
+          </ul>
+          <div class="btn-wrap">
+            <a class="literatura-btn" href="https://nar-anon-webstore.myshopify.com/pages/espanol-ebooks" target="_blank" rel="noopener noreferrer">Ver eBooks en español <i class="fa fa-external-link" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <aside class="literatura-note">
+      <strong>Antes de comprar:</strong> los precios, existencias, métodos de pago y opciones de envío pueden variar. Si estás en Ecuador, confirma con la tienda que el pedido impreso se pueda enviar a tu dirección y consulta el costo total antes de pagar. Para los eBooks, verifica que el título esté disponible en tu país. Los enlaces llevan a recursos de Nar-Anon; las plataformas de venta mencionadas no implican afiliación ni respaldo de Nar-Anon.
+    </aside>
+
+    <div class="literatura-links">
+      ¿Necesitas ayuda para encontrar un título? Puedes consultar el <a href="https://nar-anon.org/help-me-find-literature/" target="_blank" rel="noopener noreferrer">índice de literatura de Nar-Anon</a> o escribir a la Oficina de Servicio Mundial: <a href="mailto:wso@nar-anon.org">wso@nar-anon.org</a>.
+    </div>
+  </div>
+</section>
+{% endblock %}
