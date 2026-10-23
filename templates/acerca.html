@@ -372,6 +372,36 @@
 }
 </style>
 <script>
+/* Sincroniza explícitamente el encabezado de Acerca con el scroll de la página. */
+(function () {
+  function syncAcercaHeader() {
+    var nav = document.querySelector('body.page-acerca nav.top-bar.sps');
+    if (!nav) return;
+    var y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (y > 1) {
+      nav.classList.add('sps--blw');
+      nav.classList.remove('sps--abv');
+      nav.style.setProperty('position', 'fixed', 'important');
+      nav.style.setProperty('top', '0', 'important');
+      nav.style.setProperty('left', '0', 'important');
+      nav.style.setProperty('right', '0', 'important');
+      nav.style.setProperty('width', '100%', 'important');
+      nav.style.setProperty('background', '#fff', 'important');
+      nav.style.setProperty('background-image', 'none', 'important');
+      nav.style.setProperty('box-shadow', '0 2px 10px rgba(0,0,0,.14)', 'important');
+    } else {
+      nav.classList.add('sps--abv');
+      nav.classList.remove('sps--blw');
+      ['position','top','left','right','width','background','background-image','box-shadow'].forEach(function (p) { nav.style.removeProperty(p); });
+    }
+  }
+  window.addEventListener('scroll', syncAcercaHeader, { passive: true });
+  window.addEventListener('resize', syncAcercaHeader);
+  window.addEventListener('pageshow', syncAcercaHeader);
+  document.addEventListener('DOMContentLoaded', syncAcercaHeader);
+  syncAcercaHeader();
+})();
+
 /* Acerca debe cargar siempre con el menú cerrado en responsive. */
 document.addEventListener('DOMContentLoaded', function () {
   if (window.innerWidth > 767) return;
