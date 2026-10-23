@@ -94,6 +94,10 @@ def literatura(request):
     return render(request, "literatura.html")
 
 
+def apoyoprof(request):
+    return render(request, "apoyoprof.html")
+
+
 def naranon(request):
     return render(request, "naranon.html")
 
