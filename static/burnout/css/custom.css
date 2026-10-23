@@ -1361,3 +1361,15 @@ footer a:hover {
     background-image: none !important;
   }
 }
+
+
+/* Inicio en móvil: al desplazarse, el botón hamburguesa debe contrastar con el encabezado blanco. */
+@media (max-width: 767px) {
+  body.home-page .top-bar.sps--blw .menu-toggle {
+    border-color: #002A6E !important;
+    background: #fff !important;
+  }
+  body.home-page .top-bar.sps--blw .menu-toggle span {
+    background-color: #002A6E !important;
+  }
+}
