@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Apoyo profesional | Guerrero Valiente{% endblock %}
+{% block body_class %}interior-page page-apoyoprof{% endblock %}
+
+{% block extra_head %}
+<style>
+  .apoyoprof-page { min-height:70vh; padding:145px 0 80px; background:#f2f7fb; }
+  .apoyoprof-heading { max-width:800px; margin:0 auto 42px; text-align:center; }
+  .apoyoprof-heading .eyebrow { display:block; margin-bottom:12px; color:#168fe5; font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+  .apoyoprof-heading h1 { margin:0 0 16px; color:#002a6e; font-size:36px; line-height:1.2; font-weight:800; }
+  .apoyoprof-heading p { margin:0; color:#526174; font-size:16px; line-height:1.8; }
+  .apoyoprof-card { display:flex; flex-direction:column; max-width:760px; margin:0 auto; overflow:hidden; border:1px solid #dce8f4; border-radius:16px; background:#fff; box-shadow:0 12px 35px rgba(0,42,110,.09); }
+  .apoyoprof-card-top { display:flex; align-items:center; gap:18px; padding:28px 30px; background:#002a6e; color:#fff; }
+  .apoyoprof-icon { display:flex; flex:0 0 58px; width:58px; height:58px; align-items:center; justify-content:center; border-radius:14px; background:rgba(255,255,255,.14); color:#fff; font-size:27px; }
+  .apoyoprof-card-top h2 { margin:0 0 5px; color:#fff; font-size:23px; font-weight:800; }
+  .apoyoprof-card-top p { margin:0; color:#dcecff; font-size:14px; }
+  .apoyoprof-card-body { padding:28px 30px 30px; }
+  .apoyoprof-card-body p { margin:0 0 18px; color:#526174; font-size:15px; line-height:1.8; }
+  .apoyoprof-placeholder { padding:16px 18px; border:1px dashed #9cb9d9; border-radius:10px; background:#f7fbff; color:#526174; font-size:14px; line-height:1.7; }
+  .apoyoprof-back { display:inline-flex; align-items:center; gap:9px; margin-top:28px; color:#002a6e; font-weight:700; }
+  .apoyoprof-back:hover { color:#168fe5; }
+  @media(max-width:767px) {
+    .apoyoprof-page { padding:120px 0 55px; }
+    .apoyoprof-heading { margin-bottom:28px; }
+    .apoyoprof-heading h1 { font-size:29px; }
+    .apoyoprof-card-top { padding:22px 20px; gap:13px; }
+    .apoyoprof-card-top h2 { font-size:20px; }
+    .apoyoprof-card-body { padding:22px 20px; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="apoyoprof-page">
+  <div class="container">
+    <header class="apoyoprof-heading">
+      <span class="eyebrow">Guerrer@ Valiente | Nar-anon</span>
+      <h1>Apoyo profesional</h1>
+      <p>Un espacio para compartir referencias de páginas web y profesionales que brindan apoyo y acompañamiento a Guerrero Valiente.</p>
+    </header>
+    <article class="apoyoprof-card">
+      <div class="apoyoprof-card-top">
+        <div class="apoyoprof-icon" aria-hidden="true"><i class="fa fa-handshake-o"></i></div>
+        <div>
+          <h2>Profesionales que nos apoyan</h2>
+          <p>Referencias y recursos de confianza</p>
+        </div>
+      </div>
+      <div class="apoyoprof-card-body">
+        <p>En esta sección iremos reuniendo enlaces a sitios web de profesionales y organizaciones que colaboran con Guerrero Valiente o brindan orientación complementaria a las familias.</p>
+        <div class="apoyoprof-placeholder"><strong>Próximamente:</strong> aquí agregaremos las páginas web, una breve descripción de cada profesional y los enlaces para conocer sus servicios.</div>
+      </div>
+    </article>
+    <div class="text-center"><a class="apoyoprof-back" href="{% url 'recursos' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Recursos</a></div>
+  </div>
+</section>
+{% endblock %}
