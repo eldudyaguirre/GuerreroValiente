@@ -1511,3 +1511,42 @@ html body.interior-page.page-acerca nav.navbar.top-bar.sps--abv {
     margin-right: auto !important;
   }
 }
+
+
+/* Corrección responsive de ancho de página en Acerca: el sitio debe ocupar todo el viewport. */
+@media screen and (max-width: 767px) {
+  html {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  html body.page-acerca {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+  }
+  body.page-acerca main,
+  body.page-acerca main > section,
+  body.page-acerca main > div,
+  body.page-acerca #about,
+  body.page-acerca #advanced-features,
+  body.page-acerca .about-page {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body.page-acerca img,
+  body.page-acerca video,
+  body.page-acerca iframe {
+    max-width: 100% !important;
+  }
+}
