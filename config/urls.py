@@ -12,6 +12,7 @@ urlpatterns = [
     path("recursos/", views.recursos, name="recursos"),
     path("videos/", views.videos, name="videos"),
     path("literatura/", views.literatura, name="literatura"),
+    path("apoyoprof/", views.apoyoprof, name="apoyoprof"),
     path("naranon/", views.naranon, name="naranon"),
     path("contactos/", views.contactos, name="contactos"),
 ]
