@@ -1304,3 +1304,49 @@ body.mobile-nav-active #mobile-nav-toggle {
 .page-acerca #advanced-features .features-row:first-child h2 {
   color: #00296d;
 }
+
+
+/* Guerrero Valiente: encabezado de Acerca con el mismo comportamiento al desplazarse que Inicio. */
+.page-acerca nav.navbar.top-bar.sps--abv {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+.page-acerca nav.navbar.top-bar.sps--blw {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  background: #fff !important;
+  background-image: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .14) !important;
+  z-index: 1100 !important;
+}
+.page-acerca nav.navbar.top-bar.sps--blw .nav-link {
+  color: #002A6E !important;
+}
+.page-acerca nav.navbar.top-bar.sps--blw .navbar-brand .header-logo-white {
+  display: none !important;
+}
+.page-acerca nav.navbar.top-bar.sps--blw .navbar-brand .header-logo-blue {
+  display: block !important;
+}
+@media screen and (max-width: 767px) {
+  .page-acerca nav.navbar.top-bar.sps--blw button.menu-toggle {
+    background: #fff !important;
+    border: 2px solid #002A6E !important;
+  }
+  .page-acerca nav.navbar.top-bar.sps--blw button.menu-toggle span {
+    background: #002A6E !important;
+    background-color: #002A6E !important;
+  }
+  .page-acerca nav.navbar.top-bar.sps--blw #navbarCollapse1,
+  .page-acerca nav.navbar.top-bar.sps--blw #navbarCollapse1.show {
+    background: #002A6E !important;
+    background-image: none !important;
+  }
+}
