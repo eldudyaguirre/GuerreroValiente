@@ -1373,3 +1373,18 @@ footer a:hover {
     background-color: #002A6E !important;
   }
 }
+
+
+/* FIX móvil: botón hamburguesa azul cuando el encabezado pasa a fondo blanco. */
+@media screen and (max-width: 767px) {
+  html body nav.navbar.top-bar.sps--blw button.menu-toggle {
+    background-color: #ffffff !important;
+    border: 2px solid #002A6E !important;
+    box-shadow: none !important;
+  }
+  html body nav.navbar.top-bar.sps--blw button.menu-toggle span {
+    background: #002A6E !important;
+    background-color: #002A6E !important;
+    opacity: 1 !important;
+  }
+}
