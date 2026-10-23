@@ -44,7 +44,8 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Seguridad detrás de Cloudflare Tunnel (HTTPS público)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# Cloudflare Tunnel termina HTTPS; la redirección HTTP→HTTPS se gestiona en Cloudflare.
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 3600
