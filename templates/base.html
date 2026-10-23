@@ -181,7 +181,27 @@
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="{% static 'burnout/js/jquery.min.js' %}" ></script> 
 <script src="{% static 'burnout/js/bootstrap.min.js' %}"></script> 
-<script src="{% static 'burnout/js/scrollPosStyler.js' %}"></script> 
+<script src="{% static 'burnout/js/scrollPosStyler.js' %}"></script>
+<script>
+/* Garantiza el estado de la cabecera en todas las páginas, incluida Acerca. */
+(function () {
+  function updateHeaderScrollState() {
+    var nav = document.querySelector('nav.top-bar.sps');
+    if (!nav) return;
+    if (window.pageYOffset > 1) {
+      nav.classList.add('sps--blw');
+      nav.classList.remove('sps--abv');
+    } else {
+      nav.classList.add('sps--abv');
+      nav.classList.remove('sps--blw');
+    }
+  }
+  window.addEventListener('scroll', updateHeaderScrollState, { passive: true });
+  window.addEventListener('pageshow', updateHeaderScrollState);
+  document.addEventListener('DOMContentLoaded', updateHeaderScrollState);
+  updateHeaderScrollState();
+})();
+</script> 
 <script src="{% static 'burnout/js/swiper.min.js' %}"></script> 
 <script src="{% static 'burnout/js/isotope.min.js' %}"></script> 
 <script src="{% static 'burnout/js/nivo-lightbox.min.js' %}"></script> 
