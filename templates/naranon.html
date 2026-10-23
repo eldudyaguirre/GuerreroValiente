@@ -11,14 +11,14 @@
   .naranon-heading h1 { margin:0 0 16px; color:#168fe5; font-size:34px; line-height:1.25; font-weight:700; }
   .naranon-heading p { margin:0 auto 10px; color:#526174; font-size:16px; line-height:1.8; }
   .naranon-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:1000px; margin:0 auto; }
-  .naranon-card { position:relative; display:block; min-width:0; min-height:390px; overflow:hidden; border-radius:10px; background:#002a6e; box-shadow:0 5px 18px rgba(0,0,0,.08); isolation:isolate; }
+  .naranon-card { position:relative; display:block; min-width:0; min-height:390px; overflow:hidden; border-radius:10px; background:transparent; box-shadow:0 5px 18px rgba(0,0,0,.08); isolation:isolate; }
   .naranon-card-image,.naranon-card-image::after,.naranon-card-image img { position:absolute; inset:0; width:100%; height:100%; }
   .naranon-card-image { z-index:-2; overflow:hidden; }
   .naranon-card-image img { display:block; object-fit:cover; object-position:center; transition:transform .55s ease; }
-  .naranon-card-image::after { content:""; z-index:1; background:linear-gradient(180deg,rgba(0,20,45,.08) 0%,rgba(0,20,45,.28) 42%,rgba(0,20,45,.8) 100%); transition:background .35s ease; }
+  .naranon-card-image::after { content:none; }
   .naranon-card-title { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:25px; text-align:center; transition:opacity .3s ease,transform .3s ease; }
   .naranon-card-title h2 { margin:0; color:#fff; font-size:27px; line-height:1.3; font-weight:700; text-shadow:0 2px 10px rgba(0,0,0,.5); }
-  .naranon-card-overlay { position:absolute; inset:auto 0 0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:62%; padding:30px 24px 24px; text-align:center; color:#fff; background:linear-gradient(180deg,rgba(0,42,110,0) 0%,rgba(0,42,110,.9) 25%,rgba(0,42,110,.98) 100%); opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity .32s ease,visibility .32s ease,transform .32s ease; }
+  .naranon-card-overlay { position:absolute; inset:auto 0 0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:62%; padding:30px 24px 24px; text-align:center; color:#fff; background:transparent; opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity .32s ease,visibility .32s ease,transform .32s ease; }
   .naranon-card-overlay .meeting-day { margin:0 0 8px; color:#8de6e8; font-size:13px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; }
   .naranon-card-overlay p { margin:0 0 8px; color:rgba(255,255,255,.96); font-size:15px; line-height:1.7; }
   .naranon-card:hover .naranon-card-image img,.naranon-card:focus-visible .naranon-card-image img { transform:scale(1.06); }
@@ -28,8 +28,8 @@
   .naranon-address strong { color:#002a6e; }
   @media(hover:none),(max-width:767.98px) {
     .naranon-card-title { display:none; }
-    .naranon-card-overlay { opacity:1; visibility:visible; transform:none; min-height:58%; background:linear-gradient(180deg,rgba(0,23,54,0) 0%,rgba(0,23,54,.93) 26%,#001b36 100%); }
-    .naranon-card-image::after { background:linear-gradient(180deg,rgba(0,20,45,0) 0%,rgba(0,20,45,.03) 55%,rgba(0,20,45,.1) 100%); }
+    .naranon-card-overlay { opacity:1; visibility:visible; transform:none; min-height:58%; background:transparent; text-shadow:0 1px 5px rgba(0,0,0,.9); }
+
   }
   @media(max-width:767.98px) {
     .naranon-section { padding:120px 0 55px; }
