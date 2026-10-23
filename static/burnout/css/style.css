@@ -1437,3 +1437,22 @@ html body.interior-page.page-acerca nav.navbar.top-bar.sps--abv {
     background-image: none !important;
   }
 }
+
+
+/* Acerca responsive: hamburguesa azul sobre cabecera blanca al desplazarse. */
+@media screen and (max-width: 767px) {
+  html body.page-acerca nav.top-bar.sps--blw .menu-toggle,
+  html body.page-acerca nav.top-bar.sps--blw button.menu-toggle {
+    background: #fff !important;
+    background-color: #fff !important;
+    border: 2px solid #002A6E !important;
+    color: #002A6E !important;
+    box-shadow: none !important;
+  }
+  html body.page-acerca nav.top-bar.sps--blw .menu-toggle span,
+  html body.page-acerca nav.top-bar.sps--blw button.menu-toggle span {
+    background: #002A6E !important;
+    background-color: #002A6E !important;
+    opacity: 1 !important;
+  }
+}
