@@ -372,12 +372,13 @@
 }
 </style>
 <script>
-/* Sincroniza explícitamente el encabezado de Acerca con el scroll de la página. */
+/* Acerca responsive: el encabezado aparece al bajar y permanece visible; no depende de la dirección del scroll. */
 (function () {
   function syncAcercaHeader() {
+    if (window.innerWidth > 767) return; // No modificar escritorio.
     var nav = document.querySelector('body.page-acerca nav.top-bar.sps');
     if (!nav) return;
-    var y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (y > 1) {
       nav.classList.add('sps--blw');
       nav.classList.remove('sps--abv');
@@ -389,13 +390,18 @@
       nav.style.setProperty('background', '#fff', 'important');
       nav.style.setProperty('background-image', 'none', 'important');
       nav.style.setProperty('box-shadow', '0 2px 10px rgba(0,0,0,.14)', 'important');
+      nav.style.setProperty('transform', 'translateY(0)', 'important');
+      nav.style.setProperty('visibility', 'visible', 'important');
+      nav.style.setProperty('opacity', '1', 'important');
+      nav.style.setProperty('z-index', '1100', 'important');
     } else {
       nav.classList.add('sps--abv');
       nav.classList.remove('sps--blw');
-      ['position','top','left','right','width','background','background-image','box-shadow'].forEach(function (p) { nav.style.removeProperty(p); });
+      ['position','top','left','right','width','background','background-image','box-shadow','transform','visibility','opacity','z-index'].forEach(function (p) { nav.style.removeProperty(p); });
     }
   }
   window.addEventListener('scroll', syncAcercaHeader, { passive: true });
+  document.addEventListener('scroll', syncAcercaHeader, { passive: true, capture: true });
   window.addEventListener('resize', syncAcercaHeader);
   window.addEventListener('pageshow', syncAcercaHeader);
   document.addEventListener('DOMContentLoaded', syncAcercaHeader);
