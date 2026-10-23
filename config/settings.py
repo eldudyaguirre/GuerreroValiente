@@ -22,7 +22,9 @@ load_dotenv(BASE_DIR / ".env")
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lcs(z$tca8knux)wz5kn96fv=$$sv*8eo1e%t3iewre7qop!09'
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    raise RuntimeError('Falta SECRET_KEY en el archivo .env')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -39,6 +41,15 @@ CSRF_TRUSTED_ORIGINS = [
     'https://guerrerovaliente.org',
     'https://www.guerrerovaliente.org',
 ]
+
+# Seguridad detrás de Cloudflare Tunnel (HTTPS público)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 # Application definition
